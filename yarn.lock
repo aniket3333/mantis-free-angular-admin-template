@@ -243,7 +243,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
+"@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>= 17.0.0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/common/-/common-19.0.5.tgz"
   integrity sha512-fFK+euCj1AjBHBCpj9VnduMSeqoMRhZZHbhPYiND7tucRRJ8vwGU0sYK2KI/Ko+fsrNIXL/0O4F36jVPl09Smg==
@@ -271,7 +271,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
+"@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>= 17.0.0", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/core/-/core-19.0.5.tgz"
   integrity sha512-Ywc6sPO6G/Y1stfk3y/MallV/h0yzQ0vdOHRWueLrk5kD1DTdbolV4X03Cs3PuVvravgcSVE3nnuuHFuH32emQ==
@@ -2293,6 +2293,26 @@ adjust-sourcemap-loader@^4.0.0:
   dependencies:
     loader-utils "^2.0.0"
     regex-parser "^2.2.11"
+
+ag-charts-types@11.0.4:
+  version "11.0.4"
+  resolved "https://registry.npmjs.org/ag-charts-types/-/ag-charts-types-11.0.4.tgz"
+  integrity sha512-K/Mi7FXvSCoABLSrqQ70k1QrIL5R6RNCt2NAppOxMEir+DVFPqKZtghruobc2MGVUUKkT9MCn6Dun+fL6yZjfA==
+
+ag-grid-angular@^33.0.4:
+  version "33.0.4"
+  resolved "https://registry.npmjs.org/ag-grid-angular/-/ag-grid-angular-33.0.4.tgz"
+  integrity sha512-TRQgw+bETwmSvsidenuqrgHUhAVVGdNKjRNartIUi0frCTRPbz26LIjLRbC4ywiOWmj0dOIErb0HZxypAaGp4g==
+  dependencies:
+    ag-grid-community "33.0.4"
+    tslib "^2.3.0"
+
+ag-grid-community@33.0.4:
+  version "33.0.4"
+  resolved "https://registry.npmjs.org/ag-grid-community/-/ag-grid-community-33.0.4.tgz"
+  integrity sha512-iBD8g8bNIl95w9CzCQpDid+eTdmOoT39204sPUOhE9eE50vfoDHIaF5U4fRYQHbLsT4bwbXfQYdsqBAOLJL24w==
+  dependencies:
+    ag-charts-types "11.0.4"
 
 agent-base@^7.0.2, agent-base@^7.1.0, agent-base@^7.1.2:
   version "7.1.3"

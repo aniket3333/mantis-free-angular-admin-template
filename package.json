@@ -14,7 +14,7 @@
     "lint:fix": "ng lint --fix",
     "prettier": "prettier --write ./src"
   },
-  "private": false,
+  "private": true,
   "dependencies": {
     "@angular/animations": "19.0.5",
     "@angular/cdk": "19.0.4",
@@ -28,31 +28,14 @@
     "@ant-design/icons-angular": "19.0.0",
     "@ng-bootstrap/ng-bootstrap": "18.0.0",
     "@popperjs/core": "2.11.8",
+    "ag-grid-angular": "^33.0.4",
     "apexcharts": "3.49.2",
     "bootstrap": "5.3.3",
     "ng-apexcharts": "1.11.0",
     "ngx-scrollbar": "16.1.1",
     "rxjs": "~7.8.1",
     "tslib": "2.8.1",
-    "zone.js": "~0.15.0",
-
-
-    "@ag-grid-community/angular": "^33.0.0",
-    "@ag-grid-community/client-side-row-model": "^33.0.0",
-    "@ag-grid-community/core": "^33.0.0",
-    "@ag-grid-community/styles": "^33.0.0",
-    "@ag-grid-enterprise/advanced-filter": "^33.0.0",
-    "@ag-grid-enterprise/charts-enterprise": "^33.0.0",
-    "@ag-grid-enterprise/column-tool-panel": "^33.0.0",
-    "@ag-grid-enterprise/excel-export": "^33.0.0",
-    "@ag-grid-enterprise/filter-tool-panel": "^33.0.0",
-    "@ag-grid-enterprise/menu": "^33.0.0",
-    "@ag-grid-enterprise/range-selection": "^33.0.0",
-    "@ag-grid-enterprise/rich-select": "^33.0.0",
-    "@ag-grid-enterprise/row-grouping": "^33.0.0",
-    "@ag-grid-enterprise/set-filter": "^33.0.0",
-    "@ag-grid-enterprise/sparklines": "^33.0.0",
-    "@ag-grid-enterprise/status-bar": "^33.0.0"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.0.6",
