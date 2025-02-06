@@ -6,13 +6,12 @@ import { SHARE_POINTS_SERVICE, ISharePointService } from '../Ishare-point.servic
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { UploadFile } from '../model/upload-file.model';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { ProviderList } from '../../dashboard-provider.registerar';
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 @Component({
   selector: 'app-drive-item-list',
   standalone: true,
-  imports: [HttpClientModule, CommonModule,RouterModule,NavbarComponent],
+  imports: [HttpClientModule, CommonModule,RouterModule],
   templateUrl: './drive-item-list.component.html',
   styleUrls: ['./drive-item-list.component.css'],
   providers:[ProviderList]

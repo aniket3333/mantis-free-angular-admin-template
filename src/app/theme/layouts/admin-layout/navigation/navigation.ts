@@ -30,7 +30,7 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Sites',
         type: 'item',
         classes: 'nav-item',
-        url: '/Test/Callback',
+        url: '/pages/all-sites',
         icon: 'dashboard',
         breadcrumbs: false
       }
@@ -50,7 +50,8 @@ export const NavigationItems: NavigationItem[] = [
         url: '/Test/Callback',
         icon: 'dashboard',
         breadcrumbs: false
-      }
+      },
+
     ]
   },
   // {

@@ -5,13 +5,12 @@ import { SitesModal } from '../common/siteModal';
 import { SHARE_POINTS_SERVICE, ISharePointService } from '../Ishare-point.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { ProviderList } from '../../dashboard-provider.registerar';
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 @Component({
   selector: 'app-drives-sites-list',
   standalone: true,
-  imports: [HttpClientModule, CommonModule,RouterModule,NavbarComponent],
+  imports: [HttpClientModule, CommonModule,RouterModule],
   templateUrl: './drives-sites-list.component.html',
   styleUrls: ['./drives-sites-list.component.css'],
     providers:[ProviderList]

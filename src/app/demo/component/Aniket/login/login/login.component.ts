@@ -3,7 +3,7 @@ import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
-import { ProviderList } from '../../../dashboard-provider.registerar';
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 @Component({
    selector: 'app-login',

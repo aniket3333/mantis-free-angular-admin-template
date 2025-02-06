@@ -7,15 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { ProviderList } from '../../dashboard-provider.registerar';
-import { ToastrService } from 'ngx-toastr';
-import { LoaderService } from 'src/app/core/services/loader.service';
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 @Component({
   selector: 'app-all-sites-list',
   standalone: true, // This indicates that the component is standalone
-  imports: [HttpClientModule, CommonModule, RouterModule,NavbarComponent], // List of imported modules
+  imports: [HttpClientModule, CommonModule, RouterModule], // List of imported modules
   templateUrl: './all-sites-list.component.html', // Path to the HTML template
   styleUrls: ['./all-sites-list.component.css'], // Use styleUrls (plural)
   providers: [ProviderList] // List of providers (services)
@@ -35,7 +32,7 @@ export class AllSitesListComponent implements OnInit {
     webUrl: "https://sdaemoninfo.sharepoint.com"
   };
   constructor(
-    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private loaderService:LoaderService,private toasterService:ToastrService,private router :Router
+    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private router :Router
   ) {
 
   }
@@ -56,7 +53,6 @@ navigate(siteId:string){
   }
   getAllSites() {
     debugger
-    this.loaderService.isLoading.next(true);
     this.sharePointService.getAllSites().subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
         debugger

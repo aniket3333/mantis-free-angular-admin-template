@@ -7,45 +7,36 @@ import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.compon
 import { GuestLayoutComponent } from './theme/layouts/guest-layout/guest-layout.component';
 
 const routes: Routes = [
+ 
+  {path:'',redirectTo:'Test/Callback',pathMatch:'full'},
   {
-    path: '',
+    path: 'Test/Callback',
+    loadComponent: () => import('./demo/component/Aniket/login/login/login.component').then((c) => c.LoginComponent)
+  },
+  {
+    path: 'pages',
     component: AdminComponent,
     children: [
       {
         path: '',
-        redirectTo: '/Test/Callback',
+        redirectTo: 'all-sites',
         pathMatch: 'full'
       },
       {
-        path: 'Test/Callback',
-        loadComponent: () => import('./demo/component/Aniket/user-management/user-list/user-list.component').then((c) => c.UserListComponent)
+        path: 'all-sites',
+        loadComponent: () => import('./demo/component/Aniket/all-sites-list/all-sites-list.component').then((c) => c.AllSitesListComponent)
+      },    
+      {
+        path: 'drive-list/:siteId',
+        loadComponent: () => import('./demo/component/Aniket/drives-sites-list/drives-sites-list.component').then((c) => c.DrivesSitesListComponent)
       },      
       {
-        path: 'typography',
-        loadComponent: () => import('./demo/component/basic-component/color/color.component').then((c) => c.ColorComponent)
+        path: 'drive-item/:DriveId',
+        loadComponent: () => import('./demo/component/Aniket/drive-item-list/drive-item-list.component').then((c) => c.DriveItemListComponent)
       },
       {
-        path: 'color',
-        loadComponent: () => import('./demo/component/basic-component/typography/typography.component').then((c) => c.TypographyComponent)
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () => import('./demo/others/sample-page/sample-page.component').then((c) => c.SamplePageComponent)
-      }
-    ]
-  },
-  {
-    path: '',
-    component: GuestLayoutComponent,
-    children: [
-      {
-        path: 'login',
-        loadComponent: () => import('./demo/pages/authentication/auth-login/auth-login.component').then((c) => c.AuthLoginComponent)
-      },
-      {
-        path: 'register',
-        loadComponent: () =>
-          import('./demo/pages/authentication/auth-register/auth-register.component').then((c) => c.AuthRegisterComponent)
+        path: 'drive-view-file/:fileUrl',
+        loadComponent: () => import('./demo/component/Aniket/finance-example/finance-example.component').then((c) => c.FinanceExample)
       }
     ]
   }
