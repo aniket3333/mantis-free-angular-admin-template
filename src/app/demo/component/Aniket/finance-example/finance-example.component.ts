@@ -36,7 +36,7 @@ import { SitesModal } from '../common/siteModal';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, NgxUiLoaderService, PB_DIRECTION, POSITION, SPINNER } from "ngx-ui-loader";
 import { sparklineTooltipRenderer } from './cell-renderers/sparklineTooltipRrnderer';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ProviderList } from '../../dashboard-provider.registerar';
+import { ProviderList } from 'src/app/app-provider.registrar';
 // import { AgChartsEnterpriseModule } from 'ag-charts-enterprise';
 ModuleRegistry.registerModules([
   ClientSideRowModelModule,
