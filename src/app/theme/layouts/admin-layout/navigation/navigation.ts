@@ -27,7 +27,24 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'default',
-        title: 'Default',
+        title: 'Sites',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/Test/Callback',
+        icon: 'dashboard',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
+    id: 'usermanagement',
+    title: 'User Management',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'userlist',
+        title: 'Users',
         type: 'item',
         classes: 'nav-item',
         url: '/Test/Callback',
