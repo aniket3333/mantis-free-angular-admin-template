@@ -64,7 +64,7 @@ console.log(formValue);
 
 cancelAddUpdateModel()
 {
-  this._router.navigate(['/pages/user-management/user-list']);
+  this._router.navigate(['/pages/users']);
 }
 
 onSubmit() {
