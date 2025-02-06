@@ -1,0 +1,34 @@
+<!-- <app-navbar></app-navbar> -->
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4">
+      <span *ngIf="successMessage!='' && successMessage!=null" class="text-success">{{successMessage}}</span>
+    </div>
+    <div class="col-sm-4 text-end">
+      <button *ngIf="!uploafFileFlag && (successMessage=='' || successMessage==null)" type="button" class="btn btn-sm btn-primary" (click)="uploadFile()">Upload File</button>
+     
+        <!-- <label  *ngIf="uploafFileFlag" for="imageFile">Upload File</label> -->
+        <input   *ngIf="uploafFileFlag" id="imageFile" type="file" class="form-control" (change)="onFileSelected($event)" />  <div class="row mt-3">
+
+    
+    </div>
+  </div>
+ 
+    <div *ngFor="let site of sitesData" class="col-lg-3 col-md-6 mb-4">
+      <div class="site-card d-flex align-items-center">
+        <!-- Display site name horizontally with folder icon -->
+        <span   (click)="navigate(site)" style="cursor: pointer;" class="d-flex align-items-center site-name">
+          <!-- Folder Icon -->
+          <i class="bi bi-filetype-xlsx me-2"></i>
+          <!-- Site Name -->
+          <span>{{ site.Name }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+

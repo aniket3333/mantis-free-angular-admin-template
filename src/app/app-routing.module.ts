@@ -13,13 +13,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard/default',
+        redirectTo: '/Test/Callback',
         pathMatch: 'full'
       },
       {
-        path: 'dashboard/default',
-        loadComponent: () => import('./demo/dashboard/default/default.component').then((c) => c.DefaultComponent)
-      },
+        path: 'Test/Callback',
+        loadComponent: () => import('./demo/component/Aniket/user-management/user-list/user-list.component').then((c) => c.UserListComponent)
+      },      
       {
         path: 'typography',
         loadComponent: () => import('./demo/component/basic-component/color/color.component').then((c) => c.ColorComponent)
