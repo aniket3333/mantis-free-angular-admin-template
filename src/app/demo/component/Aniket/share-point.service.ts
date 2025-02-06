@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ISharePointService } from './Ishare-point.service';
 import { UserModel } from './model/user.model';
 import { UserSearch } from './model/user.search.model';
+import { GroupModel } from './model/group-model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,15 @@ export class SharePointService  implements ISharePointService{
     });
     return { headers };
   }
+  private createHttpOptionsBearer(): { headers: HttpHeaders } {
+    debugger
+    const token = this.getAuthToken();  // Retrieve the token dynamically
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : '' // Only add Authorization if token exists
+    });
+    return { headers };
+  }
   private createHttpOption(): { headers: HttpHeaders } {
     const token = this.getAuthToken();  // Retrieve the token dynamically
     
@@ -39,7 +49,8 @@ export class SharePointService  implements ISharePointService{
   getAllSites():Observable<BaseResponseModel<DataTableModel<SitesModal>>>{
 
     // return this.http.get("https://rnapi.sdaemon.com/Api/api/v1/SharePoint/GetSites")
-    const options = this.createHttpOptions();
+    // const options = this.createHttpOptions();
+    const options = this.createHttpOption();
     return this.http.get<BaseResponseModel<DataTableModel<SitesModal>>>(
      "https://rnapi.sdaemon.com/Api/api/v1/SharePoint/GetSites",options
 
@@ -119,5 +130,19 @@ export class SharePointService  implements ISharePointService{
     const options = this.createHttpOption();  // Get the HTTP options with Authorization header
     
     return this.http.post<BaseResponseModel<DataTableModel<UserModel>>>(url,  model , options);
+  }
+
+  //group
+  getAllGroups():Observable<BaseResponseModel<DataTableModel<GroupModel>>>{
+    const options = this.createHttpOptionsBearer();
+    return this.http.get<BaseResponseModel<DataTableModel<GroupModel>>>(
+     "https://graph.microsoft.com/v1.0/groups",options
+
+    );
+  }
+ 
+  getGroupById(GroupId:string):Observable<BaseResponseModel<GroupModel>>{
+    const options = this.createHttpOptionsBearer(); 
+    return this.http.get<BaseResponseModel<DataTableModel<GroupModel>>>(`https://graph.microsoft.com/v1.0/groups/${GroupId}`,options);
   }
 }

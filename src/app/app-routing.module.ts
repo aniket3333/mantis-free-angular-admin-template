@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Project import
 import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.component';
-import { GuestLayoutComponent } from './theme/layouts/guest-layout/guest-layout.component';
 import { AddUserComponent } from './demo/component/Aniket/user-management/add-user/add-user.component';
 const routes: Routes = [
  
@@ -45,7 +44,11 @@ const routes: Routes = [
       {
         path:'create-user',
         component:AddUserComponent
-      }
+      },
+      {
+        path: 'groups',
+        loadComponent: () => import('./demo/component/Aniket/group-management/group-list/group-list.component').then((c) => c.GroupListComponent)
+      },
     ]
   }
 ];

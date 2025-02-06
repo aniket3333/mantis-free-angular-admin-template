@@ -33,6 +33,15 @@ export const NavigationItems: NavigationItem[] = [
         url: '/pages/all-sites',
         icon: 'dashboard',
         breadcrumbs: false
+      },
+      {
+        id: 'default',
+        title: 'Group',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/pages/groups',
+        icon: 'dashboard',
+        breadcrumbs: false
       }
     ]
   },

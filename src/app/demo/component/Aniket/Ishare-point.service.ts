@@ -8,6 +8,7 @@ import { DataTableModel } from './common/datatable.model';
 import { SitesModal } from './common/siteModal';
 import { UserSearch } from './model/user.search.model';
 import { UserModel } from './model/user.model';
+import { GroupModel } from './model/group-model';
 
 export const SHARE_POINTS_SERVICE = new InjectionToken("share points service");
 
@@ -30,4 +31,11 @@ export interface ISharePointService{
   addUser(model:FormData):Observable<BaseResponseModel<string>>;
   uploadFile(model:FormData):Observable<BaseResponseModel<DataTableModel<any>>>;
 
+  //group
+  getAllGroups():Observable<BaseResponseModel<DataTableModel<GroupModel>>>;
+  getGroupById(GroupId:string):Observable<BaseResponseModel<GroupModel>>
+
+
+  //owner
+  // addUser(model:string):Observable<BaseResponseModel<string>>;
 }
