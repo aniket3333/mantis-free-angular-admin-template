@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
 import { HttpStatus } from '../../common/http-status';
-import { ProviderList } from '../../../dashboard-provider.registerar';
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 
 @Component({

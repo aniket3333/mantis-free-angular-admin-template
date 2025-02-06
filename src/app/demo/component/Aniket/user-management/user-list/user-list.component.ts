@@ -87,6 +87,6 @@ private getUserList() {
 // }
 navigateToCreateUser()
 {
-  this._router.navigate(['/pages/user-management/add-user']);
+  this._router.navigate(['/pages/create-user']);
 }
 }

@@ -9,7 +9,6 @@ import {
   type ValueFormatterFunc,
   type ValueGetterParams,
 } from '@ag-grid-community/core';
-import { AgGridAngular, AgGridModule } from '@ag-grid-community/angular';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { AdvancedFilterModule } from '@ag-grid-enterprise/advanced-filter';
@@ -20,23 +19,19 @@ import { FiltersToolPanelModule } from '@ag-grid-enterprise/filter-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
 import { RangeSelectionModule } from '@ag-grid-enterprise/range-selection';
 import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
-import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
+import * as rowGrouping from '@ag-grid-enterprise/row-grouping';
 import { SetFilterModule } from '@ag-grid-enterprise/set-filter';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
-import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
-import '@ag-grid-community/styles/ag-grid.css';
-import '@ag-grid-community/styles/ag-theme-quartz.css';
+// import '@ag-grid-community/styles/ag-grid.css';
+// import '@ag-grid-community/styles/ag-theme-quartz.css';
 import { getData } from './data';
 
-import { TickerCellRenderer } from './cell-renderers/ticker-cell-renderer.component';
-import { HttpStatus } from '../common/http-status';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../Ishare-point.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SitesModal } from '../common/siteModal';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, NgxUiLoaderService, PB_DIRECTION, POSITION, SPINNER } from "ngx-ui-loader";
-import { sparklineTooltipRenderer } from './cell-renderers/sparklineTooltipRrnderer';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
+import { AgGridAngular } from '@ag-grid-community/angular';
 // import { AgChartsEnterpriseModule } from 'ag-charts-enterprise';
 ModuleRegistry.registerModules([
   ClientSideRowModelModule,
@@ -47,7 +42,7 @@ ModuleRegistry.registerModules([
   GridChartsModule,
   MenuModule,
   RangeSelectionModule,
-  RowGroupingModule,
+  rowGrouping.RowGroupingModule,
   SetFilterModule,
   RichSelectModule,
   StatusBarModule,
@@ -73,7 +68,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 @Component({
   selector: 'finance-example',
   standalone: true,
-  imports: [AgGridAngular, TickerCellRenderer,HttpClientModule, NgxUiLoaderModule,NavbarComponent ],
+  imports: [AgGridAngular,HttpClientModule, NgxUiLoaderModule ],
   templateUrl: './finance-example.component.html',
   styleUrls: ['./finance-example.component.css'],
   encapsulation: ViewEncapsulation.None,

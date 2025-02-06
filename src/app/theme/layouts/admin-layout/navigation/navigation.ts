@@ -47,7 +47,7 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Users',
         type: 'item',
         classes: 'nav-item',
-        url: '/Test/Callback',
+        url: '/pages/users',
         icon: 'dashboard',
         breadcrumbs: false
       },

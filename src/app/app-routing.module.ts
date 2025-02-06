@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Project import
 import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.component';
 import { GuestLayoutComponent } from './theme/layouts/guest-layout/guest-layout.component';
-
+import { AddUserComponent } from './demo/component/Aniket/user-management/add-user/add-user.component';
 const routes: Routes = [
  
   {path:'',redirectTo:'Test/Callback',pathMatch:'full'},
@@ -37,6 +37,14 @@ const routes: Routes = [
       {
         path: 'drive-view-file/:fileUrl',
         loadComponent: () => import('./demo/component/Aniket/finance-example/finance-example.component').then((c) => c.FinanceExample)
+      },
+      {
+        path: 'users',
+        loadComponent: () => import('./demo/component/Aniket/user-management/user-list/user-list.component').then((c) => c.UserListComponent)
+      },
+      {
+        path:'create-user',
+        component:AddUserComponent
       }
     ]
   }
