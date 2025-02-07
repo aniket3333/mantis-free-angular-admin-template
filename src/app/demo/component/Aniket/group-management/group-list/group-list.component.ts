@@ -20,6 +20,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class GroupListComponent implements OnInit {
 
 	@Input() name: string;
+  
   groupModel:Array<GroupModel>;
   groupModelData:GroupModel;
 constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
@@ -66,7 +67,6 @@ this.sharePointService.getGroupById(group.id)
 }
 open() {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
-  modalRef.componentInstance.name = 'World';
 }
 navigateToCreateGroup()
 {

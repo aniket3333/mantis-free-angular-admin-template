@@ -1,15 +1,22 @@
 import { Component, Inject, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../../Ishare-point.service';
+import { ProviderList } from 'src/app/app-provider.registrar';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-member-group-modal',
-  imports: [],
+  standalone:true,
+  imports:[CommonModule,HttpClientModule,FormsModule],
+  providers: [ProviderList],
   templateUrl: './member-group-modal.component.html',
   styleUrl: './member-group-modal.component.scss'
 })
 export class MemberGroupModalComponent {
-  @Input() name:string;
+  email: string = '';
+  selectedOption: string = '';
 constructor(public activeModal:NgbActiveModal,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService){}
 
 addMember(email:string)
@@ -31,5 +38,19 @@ this.sharePointService.addOwners(email)
       } else {
       }
     });
+}
+submitForm() {
+  if (this.email && this.selectedOption) {
+    console.log("Email:", this.email);
+    console.log("Selected Option:", this.selectedOption);
+    if(this.selectedOption=='1')
+    {
+this.addOwner(this.email);
+    }else{
+      this.addOwner(this.email);
+
+    }
+    this.activeModal.close('Form submitted');
+  }
 }
 }

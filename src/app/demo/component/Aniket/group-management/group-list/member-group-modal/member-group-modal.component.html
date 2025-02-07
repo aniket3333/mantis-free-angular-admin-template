@@ -1,10 +1,38 @@
 <div class="modal-header">
-    <h4 class="modal-title">Hi there!</h4>
+    <h4 class="modal-title">Add member</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
 <div class="modal-body">
-    <p>Hello, {{ name }}!</p>
+    <form #emailForm="ngForm">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" #emailInput="ngModel" required />
+                <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                    Email is required and must be valid.
+                </div>
+            </div>
+            <div class="col-sm-6 mt-2">
+                <!-- <lab.el>Choose an option:</label> -->
+                <div>
+                    <input type="radio" id="option1" name="option" class="me-2" [(ngModel)]="selectedOption" value="1" />
+                    <label for="option1">Group member</label>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-2">
+                <div>
+                    <input type="radio" id="option2" name="option" class="me-2" [(ngModel)]="selectedOption" value="2" />
+                    <label for="option2">Group owner</label>
+                </div>
+                
+            </div>
+            <div *ngIf="!selectedOption && emailForm.touched" class="text-danger">
+                Please select an option.
+            </div>
+        </div>
+    </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-primary" [disabled]="emailForm.invalid || !selectedOption" (click)="submitForm()">Submit</button>
 </div>
