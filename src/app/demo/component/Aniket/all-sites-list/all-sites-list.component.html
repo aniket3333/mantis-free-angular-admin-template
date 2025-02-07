@@ -5,16 +5,14 @@
         <div class="card-body">
           <h5 class="card-title d-flex align-items-center">
             <i class="bi bi-folder2-open me-2"></i>
-            <span (click)="navigate(site.id)" class="text-primary pointer" title="Open">{{ site.displayName | titlecase }}</span>
+            <span (click)="navigate(site.id)" class="text-primary pointer site-name" title="{{site.displayName}}">{{ site.displayName | titlecase }}</span>
           </h5>
           <div class="ms-2">
-            <p class="card-text">{{ site.description ? site.description : 'Hellow' }}</p>
+            <p class="card-text pointer" title="description">{{ site.description ? site.description : ' ' }}</p>
             <div class="d-flex justify-content-between">
-              <small class="text-muted">Created on: {{ site.createdDateTime | date:'d MMM, yyyy' }}</small>
-              <!-- <button (click)="navigate(site.id)" class="btn btn-primary btn-sm">Go to site</button> -->
+              <small class="text-muted">Created on: <span class="badge bg-secondary">{{ site.createdDateTime | date:'d MMM, yyyy' }}</span></small>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
