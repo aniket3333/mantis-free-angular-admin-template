@@ -6,30 +6,10 @@
       <span class="f-w-600">John Doe</span>
     </a>
     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
-      <ul ngbNav #nav="ngbNav" class="nav drp-tabs nav-fill nav-tabs">
-        <li><a class="dropdown-item">
+      <a class="dropdown-item" (click)="logOut()">
           <i class="text-muted" antIcon theme="outline" type="logout"></i>
           <span>Logout</span>
-        </a></li>
-        
-        <!-- <li ngbNavItem="2">
-          <a ngbNavLink>
-            <i class="me-2" antIcon theme="outline" type="setting"></i>
-            Setting
-          </a>
-          <ng-template ngbNavContent>
-            @for (task of setting; track task) {
-              <div>
-                <a class="dropdown-item">
-                  <i class="text-muted" antIcon theme="outline" type="{{ task.icon }}"></i>
-                  <span>{{ task.title }}</span>
-                </a>
-              </div>
-            }
-          </ng-template>
-        </li> -->
-      </ul>
-      <div [ngbNavOutlet]="nav"></div>
+        </a>
     </div>
   </li>
 </ul>

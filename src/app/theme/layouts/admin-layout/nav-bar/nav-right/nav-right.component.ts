@@ -108,4 +108,9 @@ export class NavRightComponent {
       title: 'History'
     }
   ];
+  logOut()
+  {
+    localStorage.removeItem('accesstoken');
+    localStorage.removeItem('name');
+  }
 }
