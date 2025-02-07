@@ -1,6 +1,6 @@
 // angular import
 import { Component, inject, input, output } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 // project import
 
@@ -42,7 +42,8 @@ export class NavRightComponent {
   windowWidth: number;
   screenFull: boolean = true;
 
-  constructor() {
+  constructor(private router:Router) {
+    
     this.windowWidth = window.innerWidth;
     this.iconService.addIcon(
       ...[
@@ -63,7 +64,8 @@ export class NavRightComponent {
         BellOutline,
         GithubOutline,
         WalletOutline
-      ]
+      ],
+      
     );
   }
 
@@ -112,5 +114,7 @@ export class NavRightComponent {
   {
     localStorage.removeItem('accesstoken');
     localStorage.removeItem('name');
+    this.router.navigate(['/Test/Callback']);
+    
   }
 }
