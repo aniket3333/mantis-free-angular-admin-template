@@ -1,1 +1,52 @@
-<p>view-group works!</p>
+<!-- <app-navbar></app-navbar> -->
+
+<div class="container-fluid mt-4">
+    <div class="card">
+        <div class="card-body border-bottom py-4">
+            <div class="d-flex align-items-center">
+                <!-- <h5 class="mb-0 card-title flex-grow-1">
+                    Group List</h5> -->
+
+                <!-- <button type="button" class="btn btn-md btn-primary" (click)="navigateToCreateGroup()">Add Group</button> -->
+
+            </div>
+        </div>
+        <div class="card-body border-bottom py-2">
+            <div class="table-responsive">
+                <table class="table align-middle dt-responsive nowrap w-100 table-check table-striped 
+            table-bordered datatables dtr-inline b-grey">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Mail</th>
+                            <th>Mobile Phone</th>
+                            <th>Office Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of groupModelData; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td> {{ item.displayName }</td>
+                            <td>{{ item.surname }}</td>
+                            <td>{{ item.mail }}</td>
+                            <td>{{ item.mobilePhone }}</td>
+                            <td>{{ item.officeLocation }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

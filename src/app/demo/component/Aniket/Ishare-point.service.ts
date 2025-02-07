@@ -9,6 +9,7 @@ import { SitesModal } from './common/siteModal';
 import { UserSearch } from './model/user.search.model';
 import { UserModel } from './model/user.model';
 import { GroupModel } from './model/group-model';
+import { OwnerModel } from './model/owner-model';
 
 export const SHARE_POINTS_SERVICE = new InjectionToken("share points service");
 
@@ -36,7 +37,7 @@ export interface ISharePointService{
   getGroupById(GroupId:string):Observable<BaseResponseModel<GroupModel>>
   addOwners(email:string):Observable<BaseResponseModel<string>>;
   addMembers(email:string):Observable<BaseResponseModel<string>>;
-  getGroupOwners(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>;
+  getGroupOwners(groupId:string):Observable<BaseResponseModel<DataTableModel<OwnerModel>>>;
   getGroupMembers(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>;
 
 

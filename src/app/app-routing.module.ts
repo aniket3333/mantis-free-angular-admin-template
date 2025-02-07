@@ -49,6 +49,10 @@ const routes: Routes = [
         path: 'groups',
         loadComponent: () => import('./demo/component/Aniket/group-management/group-list/group-list.component').then((c) => c.GroupListComponent)
       },
+      {
+        path: 'view-group',
+        loadComponent: () => import('./demo/component/Aniket/group-management/group-list/view-group/view-group.component').then((c) => c.ViewGroupComponent)
+      },
     ]
   }
 ];

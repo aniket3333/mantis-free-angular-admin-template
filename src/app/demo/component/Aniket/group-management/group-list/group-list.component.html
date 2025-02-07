@@ -2,12 +2,12 @@
 
 <div class="container-fluid mt-4">
     <div class="card">
-        <div class="card-body border-bottom py-2">
+        <div class="card-body border-bottom py-4">
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 card-title flex-grow-1">
                     Group List</h5>
 
-                <button type="button" class="btn btn-md btn-primary" (click)="navigateToCreateGroup()">Add Group</button>
+                <!-- <button type="button" class="btn btn-md btn-primary" (click)="navigateToCreateGroup()">Add Group</button> -->
 
             </div>
         </div>
@@ -33,7 +33,10 @@
                                 <button type="button" class="btn btn-sm btn-soft-danger" (click)="open()" >
 Add Members                                  </button>
                               </td>
-                            <td>{{ user.displayName }}</td>
+                            <td><span (click)="navigateToViewGroup(user)" class="text-primary pointer">
+                                {{ user.displayName }}
+
+                            </span></td>
                             <td>{{ user.description }}</td>
 
                         </tr>
