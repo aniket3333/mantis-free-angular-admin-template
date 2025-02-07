@@ -36,7 +36,7 @@ export const NavigationItems: NavigationItem[] = [
       },
       {
         id: 'default',
-        title: 'Group',
+        title: 'Group and Members',
         type: 'item',
         classes: 'nav-item',
         url: '/pages/groups',
