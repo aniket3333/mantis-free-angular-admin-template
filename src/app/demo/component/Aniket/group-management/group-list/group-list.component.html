@@ -11,7 +11,7 @@
 
             </div>
         </div>
-        <div class="card-body border-bottom py-2" *ngIf="errorMessage">
+        <div class="card-body border-bottom py-2" *ngIf="groupModel.length>0">
             <div class="table-responsive" >
                 <table class="table align-middle dt-responsive nowrap w-100 table-check table-striped 
             table-bordered datatables dtr-inline b-grey">
@@ -48,7 +48,7 @@
                 </table>
             </div>
         </div>
-        <div class="card-body border-bottom py-2 mt-3 text-center" *ngIf="errorMessage != '' || errorMessage != null">
+        <div class="card-body border-bottom py-2 mt-3 text-center" *ngIf="groupModel.length==0">
            <div class="text-danger p-2">Token expired.</div>
            <button class="btn btn-sm btn-outline-secondary" (click)="logOut()">please login again!</button>
         </div>
