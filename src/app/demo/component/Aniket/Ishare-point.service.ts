@@ -36,6 +36,8 @@ export interface ISharePointService{
   getGroupById(GroupId:string):Observable<BaseResponseModel<GroupModel>>
   addOwners(email:string):Observable<BaseResponseModel<string>>;
   addMembers(email:string):Observable<BaseResponseModel<string>>;
+  getGroupOwners(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>;
+  getGroupMembers(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>;
 
 
   //owner

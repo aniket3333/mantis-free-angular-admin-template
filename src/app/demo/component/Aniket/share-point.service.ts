@@ -169,4 +169,19 @@ export class SharePointService  implements ISharePointService{
     // Send the request with the body and options
     return this.http.post<BaseResponseModel<string>>(url, body, options);
   }
+
+  getGroupOwners(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>{
+    const options = this.createHttpOptionsBearer();
+    return this.http.get<BaseResponseModel<DataTableModel<any>>>(
+     `https://graph.microsoft.com/v1.0/groups/${groupId}/owners`,options
+
+    );
+  }
+  getGroupMembers(groupId:string):Observable<BaseResponseModel<DataTableModel<any>>>{
+    const options = this.createHttpOptionsBearer();
+    return this.http.get<BaseResponseModel<DataTableModel<any>>>(
+     `https://graph.microsoft.com/v1.0/groups/${groupId}/members`,options
+
+    );
+  }
   }
