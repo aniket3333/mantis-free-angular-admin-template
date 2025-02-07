@@ -20,7 +20,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class GroupListComponent implements OnInit {
 
 	@Input() name: string;
-  
+
   groupModel:Array<GroupModel>;
   groupModelData:GroupModel;
 constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
@@ -31,7 +31,6 @@ constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
 ngOnInit(){
   this.groupModel = new Array<GroupModel>();
   this.groupModelData=new GroupModel();
-
 this.getGroupList();
 }
 
@@ -59,7 +58,6 @@ this.sharePointService.getGroupById(group.id)
     .subscribe((response:any) => {
       if (response) {
         this.groupModelData = response;
-        this.open();
       } else {
         this.groupModelData = null; // Assign an empty array if DataList is null or undefined
       }
