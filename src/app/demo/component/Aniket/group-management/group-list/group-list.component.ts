@@ -22,12 +22,14 @@ export class GroupListComponent implements OnInit {
 	
 
   groupModel:Array<GroupModel>;
+  errorMessage: string|null = '';
 constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
    private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,
    private modelService:NgbModal
 ) { }
 
 ngOnInit(){
+  this.errorMessage = '';
   this.groupModel = new Array<GroupModel>();
   
 this.getGroupList();
@@ -41,25 +43,42 @@ private getGroupList() {
   this.sharePointService.getAllGroups()
     .subscribe((response:any) => {
       if (response) {
+        debugger
+        this.errorMessage ='';
         this.groupModel= response?.value;
       } else {
+        this.errorMessage  = '';
         this.groupModel = []; // Assign an empty array if DataList is null or undefined
       }
-    });
-    
+    },
+  (error)=>{
+    this.groupModel = [];
+    this.errorMessage = error?.error?.error?.message;
+  });   
 }
-
-
 open() {
+  const modalRef = this.modelService.open(MemberGroupModalComponent);
+}
+group() {
+  const modalRef = this.modelService.open(MemberGroupModalComponent);
+}
+members() {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
 }
 navigateToCreateGroup()
 {
   this._router.navigate(['/pages/create-user']);
 }
-navigateToViewGroup(user:GroupModel)
+navigateToViewGroup(user:GroupModel,isOwner:string)
 {
-  this._router.navigate(['/pages/view-group'], { queryParams: { id: user.id } });
+  this._router.navigate(['/pages/view-group'], { queryParams: { id: user.id,isOwner: isOwner} });
+}
+logOut()
+{
+  localStorage.removeItem('accesstoken');
+  localStorage.removeItem('name');
+  this._router.navigate(['/Test/Callback']);
+  
 }
 }
 

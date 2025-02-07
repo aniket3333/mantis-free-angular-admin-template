@@ -11,8 +11,8 @@
 
             </div>
         </div>
-        <div class="card-body border-bottom py-2">
-            <div class="table-responsive">
+        <div class="card-body border-bottom py-2" *ngIf="errorMessage">
+            <div class="table-responsive" >
                 <table class="table align-middle dt-responsive nowrap w-100 table-check table-striped 
             table-bordered datatables dtr-inline b-grey">
                     <thead>
@@ -27,32 +27,30 @@
 
                         <tr *ngFor="let user of groupModel; let i = index">
                             <td>{{ i + 1 }}</td>
-                          
-                          
-                              <td>
-                                <button type="button" class="btn btn-sm btn-soft-danger" (click)="open()" >
-Add Members                                  </button>
-                              </td>
-                            <td><span (click)="navigateToViewGroup(user)" class="text-primary pointer">
-                                {{ user.displayName }}
 
-                            </span></td>
+
+                            <td class="text-nowrap">
+                                <button type="button" class="btn btn-sm btn-primary me-1" (click)="open()">
+                                    Add </button>
+                                <button type="button" class="btn btn-sm btn-primary me-1" (click)="navigateToViewGroup(user,'owner')">
+                                    Owners </button>
+                                <button type="button" class="btn btn-sm btn-primary" (click)="navigateToViewGroup(user,'member')">
+                                    Members </button>
+                            </td>
+                            <td>
+                                    {{ user.displayName }}
+
+                                </td>
                             <td>{{ user.description }}</td>
 
                         </tr>
                     </tbody>
                 </table>
             </div>
-
+        </div>
+        <div class="card-body border-bottom py-2 mt-3 text-center" *ngIf="errorMessage != '' || errorMessage != null">
+           <div class="text-danger p-2">Token expired.</div>
+           <button class="btn btn-sm btn-outline-secondary" (click)="logOut()">please login again!</button>
         </div>
     </div>
-
-
-
-
-
-
-
 </div>
-
-

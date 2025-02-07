@@ -1,0 +1,21 @@
+/* example.component.css */
+
+/* Styling for the button */
+.btn-left-aligned {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-left-aligned i {
+    margin-right: 8px;
+  }
+  
+  .btn-left-aligned:hover {
+    text-decoration: underline;
+  }
+  
