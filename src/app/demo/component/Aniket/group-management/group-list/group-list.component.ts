@@ -42,8 +42,7 @@ private getGroupList() {
   this.sharePointService.getAllGroups()
     .subscribe((response:any) => {
       if (response) {
-        this.groupModel= response?.value
-        
+        this.groupModel= response?.value;
       } else {
         this.groupModel = []; // Assign an empty array if DataList is null or undefined
       }
