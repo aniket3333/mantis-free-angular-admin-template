@@ -145,4 +145,28 @@ export class SharePointService  implements ISharePointService{
     const options = this.createHttpOptionsBearer(); 
     return this.http.get<BaseResponseModel<DataTableModel<GroupModel>>>(`https://graph.microsoft.com/v1.0/groups/${GroupId}`,options);
   }
-}
+
+  addOwners(email: string): Observable<BaseResponseModel<string>> {
+    const url = 'https://graph.microsoft.com/v1.0/groups/7058daa5-75dc-48fe-9acf-6e5f25effb20/owners/$ref';
+    const options = this.createHttpOptionsBearer();
+  
+    // Construct the body with the correct @odata.id format
+    const body = {
+      "@odata.id": `https://graph.microsoft.com/v1.0/users/${email}`
+    };
+  
+    // Send the request with the body and options
+    return this.http.post<BaseResponseModel<string>>(url, body, options);
+  }
+  addMembers(email: string): Observable<BaseResponseModel<string>> {
+    const url = 'https://graph.microsoft.com/v1.0/groups/7058daa5-75dc-48fe-9acf-6e5f25effb20/members/$ref';
+    const options = this.createHttpOptionsBearer();
+
+    // Construct the body with the correct @odata.id format
+    const body = {
+       "@odata.id": `https://graph.microsoft.com/v1.0/users/${email}`
+    };
+    // Send the request with the body and options
+    return this.http.post<BaseResponseModel<string>>(url, body, options);
+  }
+  }
