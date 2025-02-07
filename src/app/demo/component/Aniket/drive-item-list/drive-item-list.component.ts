@@ -36,7 +36,7 @@ navigate(site:any){
   debugger
  let fileUrl= this.getDownloadUrl(site);
  debugger
-  this.router.navigate(["/pages/drive-view-file",fileUrl])
+  this.router.navigate(['/pages/drive-view-file',fileUrl])
 }
   ngOnInit(): void {
     this.uploadFilei =new  UploadFile();
