@@ -69,4 +69,31 @@ this.sharePointService.getGroupMembers(id)
 onLinkClick(): void {
 this.router.navigate(['/pages/groups']);
 }
+delete(data:OwnerModel)
+{
+  debugger
+  console.log(data);
+if(this.showOwner){
+this.deleteOwner(data.id);
+}
+else{
+  this.deleteMember(data.id)
+
+}
+}
+deleteOwner(ownerid:string)
+{
+
+  this.sharePointService.deleteOwner(this.groupId,ownerid).subscribe((response)=>{
+console.log(response);
+this.getGroupOwners(this.groupId);
+  });
+}
+deleteMember(memberid:string)
+{
+  this.sharePointService.deleteMember(this.groupId,memberid).subscribe((response)=>{
+    console.log(response);
+    this.getGroupMembers(this.groupId);
+      });
+}
 }

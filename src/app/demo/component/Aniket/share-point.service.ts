@@ -184,4 +184,17 @@ export class SharePointService  implements ISharePointService{
 
     );
   }
+  deleteOwner(groupid: string, ownerkid: string): Observable<BaseResponseModel<any>> {
+    const options = this.createHttpOptionsBearer();
+    return this.http.delete<BaseResponseModel<any>>(
+      `https://graph.microsoft.com/v1.0/groups/${groupid}/owners/${ownerkid}/$ref`,options
+    );
+  }
+  deleteMember(groupid: string, memberid: string): Observable<BaseResponseModel<any>> {
+    const options = this.createHttpOptionsBearer();
+    return this.http.delete<BaseResponseModel<any>>(
+      `https://graph.microsoft.com/v1.0/groups/${groupid}/owners/${memberid}/$ref`,options
+    );
+  }
+  
   }

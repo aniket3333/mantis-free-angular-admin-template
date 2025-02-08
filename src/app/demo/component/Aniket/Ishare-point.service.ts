@@ -39,7 +39,8 @@ export interface ISharePointService{
   addMembers(email:string):Observable<BaseResponseModel<string>>;
   getGroupOwners(groupId:string):Observable<BaseResponseModel<DataTableModel<OwnerModel>>>;
   getGroupMembers(groupId:string):Observable<BaseResponseModel<DataTableModel<OwnerModel>>>;
-
+  deleteOwner(groupid:string,ownerkid:string):Observable<BaseResponseModel<any>>;
+  deleteMember(groupid:string,memberid:string):Observable<BaseResponseModel<any>>;
 
   //owner
   // addUser(model:string):Observable<BaseResponseModel<string>>;
