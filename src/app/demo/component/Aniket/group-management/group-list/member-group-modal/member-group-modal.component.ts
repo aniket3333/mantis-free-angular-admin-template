@@ -45,7 +45,7 @@ submitForm() {
     console.log("Selected Option:", this.selectedOption);
     if(this.selectedOption=='1')
     {
-this.addOwner(this.email);
+this.addMember(this.email);
     }else{
       this.addOwner(this.email);
 
