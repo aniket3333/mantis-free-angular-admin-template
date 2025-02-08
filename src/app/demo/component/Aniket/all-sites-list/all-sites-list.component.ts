@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-all-sites-list',
@@ -32,7 +33,8 @@ export class AllSitesListComponent implements OnInit {
     webUrl: "https://sdaemoninfo.sharepoint.com"
   };
   constructor(
-    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private router :Router
+    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private router :Router,
+    private _uiLoader:NgxUiLoaderService
   ) {
 
   }
@@ -52,7 +54,7 @@ navigate(siteId:string){
     this.getAllSites();
   }
   getAllSites() {
-    debugger
+    this._uiLoader.start();
     this.sharePointService.getAllSites().subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
         debugger

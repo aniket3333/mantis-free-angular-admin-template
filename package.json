@@ -48,6 +48,7 @@
     "apexcharts": "3.49.2",
     "bootstrap": "5.3.3",
     "ng-apexcharts": "1.11.0",
+    "ngx-loading": "^17.0.0",
     "ngx-scrollbar": "16.1.1",
     "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.8.1",

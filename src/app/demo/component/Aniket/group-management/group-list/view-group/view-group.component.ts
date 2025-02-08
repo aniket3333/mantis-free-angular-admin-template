@@ -36,7 +36,7 @@ this.getGroupOwners(this.groupId);
     }
     else{
       this.showOwner = false;
-      this.getGroupOwners(this.groupId);
+      this.getGroupMembers(this.groupId);
     }
   });
 }
