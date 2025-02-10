@@ -26,7 +26,8 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss",
-            "node_modules/sweetalert2/src/sweetalert2.scss"],
+          "node_modules/@ag-grid-community/styles/ag-grid.css",
+        "node_modules/@ag-grid-community/styles/ag-theme-alpine.css"],
             "scripts": []
           },
           "configurations": {

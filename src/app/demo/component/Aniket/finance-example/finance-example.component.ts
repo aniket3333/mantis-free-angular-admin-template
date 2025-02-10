@@ -43,9 +43,7 @@ ModuleRegistry.registerModules([
   rowGrouping.RowGroupingModule,
   SetFilterModule,
   RichSelectModule,
-  StatusBarModule,
-  SparklinesModule,
-]);
+  StatusBarModule]);
 
 const numberFormatter: ValueFormatterFunc = (params) => {
   const formatter = new Intl.NumberFormat('en-US', {
