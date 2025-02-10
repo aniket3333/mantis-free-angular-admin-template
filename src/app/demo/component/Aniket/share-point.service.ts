@@ -193,7 +193,7 @@ export class SharePointService  implements ISharePointService{
   deleteMember(groupid: string, memberid: string): Observable<BaseResponseModel<any>> {
     const options = this.createHttpOptionsBearer();
     return this.http.delete<BaseResponseModel<any>>(
-      `https://graph.microsoft.com/v1.0/groups/${groupid}/owners/${memberid}/$ref`,options
+      `https://graph.microsoft.com/v1.0/groups/${groupid}/members/${memberid}/$ref`,options
     );
   }
   

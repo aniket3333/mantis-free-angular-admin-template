@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,7 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     providers: []
 })
 export class NavbarComponent implements OnInit {
-  userName: string = 'John Doe';
+  userName: string = 'Hrushi';
   constructor(){}
 
   ngOnInit(): void {

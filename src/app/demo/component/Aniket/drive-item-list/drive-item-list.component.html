@@ -24,8 +24,8 @@
               <div class="ms-2">
                 <p class="card-text pointer" title="description">{{ site.description ? site.description : ' ' }}</p>
                 <div class="d-flex justify-content-between">
-                  <small class="text-muted mb-1">Created by: <span class="badge bg-secondary site-name">{{ site.CreatedBy.User.DisplayName }}</span></small>
-                  <small class="text-muted">Created on: <span class="badge bg-secondary">{{ site.createdDateTime | date:'d MMM, yyyy' }}</span></small>
+                  <!-- <small class="text-muted mb-1">Created by: <span class="badge bg-secondary">{{ site.CreatedBy.User.DisplayName }}</span></small> -->
+                  <small class="text-muted">Created on: <span class="badge bg-secondary">{{ site.createdDateTime | date:'d MMM, yyyy' }}</span> by <span class="badge bg-secondary">{{ site.CreatedBy.User.DisplayName }}</span></small>
 
                
                 </div>
