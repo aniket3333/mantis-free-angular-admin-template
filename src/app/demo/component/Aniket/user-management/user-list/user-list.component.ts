@@ -3,7 +3,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavbarComponent } from '../../navbar/navbar.component';
 import { UserSearch } from '../../model/user.search.model';
 import { DataTableModel } from '../../common/datatable.model';
 import { UserModel } from '../../model/user.model';
@@ -16,7 +15,7 @@ import { ProviderList } from 'src/app/app-provider.registrar';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
   standalone: true,
-  imports: [HttpClientModule,NavbarComponent,CommonModule ],
+  imports: [HttpClientModule,CommonModule ],
   encapsulation: ViewEncapsulation.None,
   providers: [ProviderList]
 })

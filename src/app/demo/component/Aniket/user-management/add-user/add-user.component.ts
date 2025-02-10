@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavbarComponent } from '../../navbar/navbar.component';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
 import { HttpStatus } from '../../common/http-status';
 import { ProviderList } from 'src/app/app-provider.registrar';
@@ -14,7 +13,7 @@ import { ProviderList } from 'src/app/app-provider.registrar';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.scss'],
     standalone: true,
-    imports: [HttpClientModule,NavbarComponent,CommonModule,ReactiveFormsModule],
+    imports: [HttpClientModule,CommonModule,ReactiveFormsModule],
     encapsulation: ViewEncapsulation.None,
     providers: [ProviderList]
 })
