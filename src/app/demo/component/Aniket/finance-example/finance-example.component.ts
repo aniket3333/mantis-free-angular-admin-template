@@ -22,8 +22,8 @@ import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
 import * as rowGrouping from '@ag-grid-enterprise/row-grouping';
 import { SetFilterModule } from '@ag-grid-enterprise/set-filter';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
-// import '@ag-grid-community/styles/ag-grid.css';
-// import '@ag-grid-community/styles/ag-theme-quartz.css';
+import '@ag-grid-community/styles/ag-grid.css';
+import '@ag-grid-community/styles/ag-theme-quartz.css';
 import { getData } from './data';
 
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../Ishare-point.service';
@@ -248,9 +248,9 @@ export class FinanceExample {
             : // Increase price if it is too low, so it does not hang around 0
               Math.random() * 40 + 10;
 
-        // const last24 = item?.last24
-        //   .slice(1, item.Amount.length)
-        //   .concat(Number(price.toFixed(2)));
+        const last24 = item?.last24
+          .slice(1, item.Amount.length)
+          .concat(Number(price.toFixed(2)));
 
         return {
           ...item,
