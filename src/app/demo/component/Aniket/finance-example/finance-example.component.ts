@@ -24,8 +24,6 @@ import { SetFilterModule } from '@ag-grid-enterprise/set-filter';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
 import '@ag-grid-community/styles/ag-grid.css';
 import '@ag-grid-community/styles/ag-theme-quartz.css';
-import { getData } from './data';
-
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../Ishare-point.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, NgxUiLoaderService, PB_DIRECTION, POSITION, SPINNER } from "ngx-ui-loader";
@@ -254,7 +252,8 @@ export class FinanceExample {
 
         return {
           ...item,
-          price
+          price,
+          last24
         };
       });
     }, this.DEFAULT_UPDATE_INTERVAL);

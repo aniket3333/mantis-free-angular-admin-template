@@ -6,10 +6,10 @@ Support: https://codedthemes.support-hub.io/
 File: style.css
 =========================================================================
 =================================================================================== */
-@import url('https://unpkg.com/ag-grid-community@28.2.0/styles/ag-grid.css');
-@import url('https://unpkg.com/ag-grid-community@28.2.0/styles/ag-theme-alpine.css');
-@import '@ag-grid-community/styles/ag-grid.css';
-@import '@ag-grid-community/styles/ag-theme-alpine.css';
+
+// @import '~ag-grid-community/styles/ag-grid.css';
+// @import '~ag-grid-community/styles/ag-theme-alpine.css';
+@import 'ag-grid-community/styles/ag-grid.css';
 // main framework
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';

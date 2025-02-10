@@ -2499,7 +2499,7 @@ ag-grid-angular@^33.0.4:
     ag-grid-community "33.0.4"
     tslib "^2.3.0"
 
-ag-grid-community@33.0.4:
+ag-grid-community@^33.0.4, ag-grid-community@33.0.4:
   version "33.0.4"
   resolved "https://registry.npmjs.org/ag-grid-community/-/ag-grid-community-33.0.4.tgz"
   integrity sha512-iBD8g8bNIl95w9CzCQpDid+eTdmOoT39204sPUOhE9eE50vfoDHIaF5U4fRYQHbLsT4bwbXfQYdsqBAOLJL24w==
