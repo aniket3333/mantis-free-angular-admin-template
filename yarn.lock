@@ -410,7 +410,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^17.0.0", "@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>= 16.0.0", "@angular/common@>= 17.0.0", "@angular/common@>=13.0.0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
+"@angular/common@^17.0.0", "@angular/common@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>= 16.0.0", "@angular/common@>= 17.0.0", "@angular/common@>=13.0.0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/common/-/common-19.0.5.tgz"
   integrity sha512-fFK+euCj1AjBHBCpj9VnduMSeqoMRhZZHbhPYiND7tucRRJ8vwGU0sYK2KI/Ko+fsrNIXL/0O4F36jVPl09Smg==
@@ -438,7 +438,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^17.0.0", "@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>= 16.0.0", "@angular/core@>= 17.0.0", "@angular/core@>=13.0.0", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
+"@angular/core@^17.0.0", "@angular/core@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>= 16.0.0", "@angular/core@>= 17.0.0", "@angular/core@>=13.0.0", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/core/-/core-19.0.5.tgz"
   integrity sha512-Ywc6sPO6G/Y1stfk3y/MallV/h0yzQ0vdOHRWueLrk5kD1DTdbolV4X03Cs3PuVvravgcSVE3nnuuHFuH32emQ==
@@ -2461,6 +2461,13 @@ adjust-sourcemap-loader@^4.0.0:
     loader-utils "^2.0.0"
     regex-parser "^2.2.11"
 
+ag-charts-angular@^11.0.4:
+  version "11.0.4"
+  resolved "https://registry.npmjs.org/ag-charts-angular/-/ag-charts-angular-11.0.4.tgz"
+  integrity sha512-1D9xEky6RcwJ49SLGScrVyJNOIy+wH32CaEY4JTdS36QqgFcOVwm5QTiMf/zTa+Qsbz4HfRVBkYpBQuMR0s2Cw==
+  dependencies:
+    tslib "^2.3.0"
+
 ag-charts-community@10.3.3:
   version "10.3.3"
   resolved "https://registry.npmjs.org/ag-charts-community/-/ag-charts-community-10.3.3.tgz"
@@ -2468,6 +2475,21 @@ ag-charts-community@10.3.3:
   dependencies:
     ag-charts-locale "10.3.3"
     ag-charts-types "10.3.3"
+
+ag-charts-community@11.0.4:
+  version "11.0.4"
+  resolved "https://registry.npmjs.org/ag-charts-community/-/ag-charts-community-11.0.4.tgz"
+  integrity sha512-TFShWfZaA1yJ/hb3jwtNAqBG2Qy9VvoQ9mWLr29ilT6+2R2e30RSk2oH7FAQ2l5nS1367dRf137Td9tUTTuVLg==
+  dependencies:
+    ag-charts-locale "11.0.4"
+    ag-charts-types "11.0.4"
+
+ag-charts-enterprise@^11.0.4:
+  version "11.0.4"
+  resolved "https://registry.npmjs.org/ag-charts-enterprise/-/ag-charts-enterprise-11.0.4.tgz"
+  integrity sha512-3jKKbzei4hzSSbPih0EFyIBJ/VvLDZAi+5QsbzxRHfsjfAuqQFYCNXx55FqOzOGg1KSa8sAwmpmTSGdLPxBfDw==
+  dependencies:
+    ag-charts-community "11.0.4"
 
 ag-charts-enterprise@10.3.3:
   version "10.3.3"
@@ -2480,6 +2502,11 @@ ag-charts-locale@10.3.3:
   version "10.3.3"
   resolved "https://registry.npmjs.org/ag-charts-locale/-/ag-charts-locale-10.3.3.tgz"
   integrity sha512-+ZAQYhkFHbdEwLYP1jZeF44X/8wwSH6SNiTykEIIk6EUuP6mm45X2YfQ0bvyekTkEJlLvFspvRQ+C6mspwLx4w==
+
+ag-charts-locale@11.0.4:
+  version "11.0.4"
+  resolved "https://registry.npmjs.org/ag-charts-locale/-/ag-charts-locale-11.0.4.tgz"
+  integrity sha512-xCQA8CtcUyqU4qYg7u9oUQ+SghIsWAQvY60Bu0ghJJ/bDeW8+ptEU0ogBapuDqfb9B9kqWKgASxbX6diqb+HVQ==
 
 ag-charts-types@10.3.3:
   version "10.3.3"
@@ -2499,12 +2526,17 @@ ag-grid-angular@^33.0.4:
     ag-grid-community "33.0.4"
     tslib "^2.3.0"
 
-ag-grid-community@^33.0.4, ag-grid-community@33.0.4:
+ag-grid-community@^20.2.0, ag-grid-community@^33.0.4, ag-grid-community@33.0.4:
   version "33.0.4"
   resolved "https://registry.npmjs.org/ag-grid-community/-/ag-grid-community-33.0.4.tgz"
   integrity sha512-iBD8g8bNIl95w9CzCQpDid+eTdmOoT39204sPUOhE9eE50vfoDHIaF5U4fRYQHbLsT4bwbXfQYdsqBAOLJL24w==
   dependencies:
     ag-charts-types "11.0.4"
+
+ag-grid-enterprise@^20.0.0:
+  version "20.2.0"
+  resolved "https://registry.npmjs.org/ag-grid-enterprise/-/ag-grid-enterprise-20.2.0.tgz"
+  integrity sha512-3Nd2RPjK1/HKAQ6/4TO7ZgoW0bGWsKmp03tfqO1uT4WMn6VeNBTcALdSMfkzuvEfcDbmLzTSuguxDyOJbJ7q5w==
 
 agent-base@^7.0.2, agent-base@^7.1.0, agent-base@^7.1.2:
   version "7.1.3"
@@ -2566,6 +2598,11 @@ ajv@^8.0.0, ajv@^8.8.2, ajv@^8.9.0, ajv@8.17.1:
     fast-uri "^3.0.1"
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
+
+angular-bootstrap@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.npmjs.org/angular-bootstrap/-/angular-bootstrap-0.12.2.tgz"
+  integrity sha512-5cE/BrGrFMDJZNE+xJmQCBG9FxVBkPC2EUSEYFA6wd/5P7dR2Ic78e6SCJ2CmgouedkRvaUjIuymbcGKFLoSqg==
 
 ansi-colors@4.1.3:
   version "4.1.3"

@@ -30,6 +30,8 @@ import { NgxUiLoaderConfig, NgxUiLoaderModule, NgxUiLoaderService, PB_DIRECTION,
 import { ProviderList } from 'src/app/app-provider.registrar';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
 import { AgGridAngular } from '@ag-grid-community/angular';
+import { iconSetMaterial, themeBalham, themeQuartz } from 'ag-grid-community';
+
 // import { AgChartsEnterpriseModule } from 'ag-charts-enterprise';
 ModuleRegistry.registerModules([
   ClientSideRowModelModule,
@@ -107,6 +109,7 @@ export class FinanceExample {
       this.fileUrl = res.get("fileUrl")?.toString() ?? '';
     });
   }
+ 
   gridOptions: GridOptions = {
     enableCharts: true,  // Enable charting in the grid
     chartThemes: ['dark', 'material'],  // Add desired chart themes
@@ -248,9 +251,8 @@ export class FinanceExample {
 
         return {
           ...item,
-          price,
-          last24
-        };
+          price ,
+          last24       };
       });
     }, this.DEFAULT_UPDATE_INTERVAL);
   }
