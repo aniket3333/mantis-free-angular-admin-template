@@ -146,8 +146,8 @@ export class SharePointService  implements ISharePointService{
     return this.http.get<BaseResponseModel<DataTableModel<GroupModel>>>(`https://graph.microsoft.com/v1.0/groups/${GroupId}`,options);
   }
 
-  addOwners(email: string): Observable<BaseResponseModel<string>> {
-    const url = 'https://graph.microsoft.com/v1.0/groups/7058daa5-75dc-48fe-9acf-6e5f25effb20/owners/$ref';
+  addOwners(email: string,groupid:string): Observable<BaseResponseModel<string>> {
+    const url = `https://graph.microsoft.com/v1.0/${groupid}/owners/$ref`;
     const options = this.createHttpOptionsBearer();
   
     // Construct the body with the correct @odata.id format
@@ -158,8 +158,8 @@ export class SharePointService  implements ISharePointService{
     // Send the request with the body and options
     return this.http.post<BaseResponseModel<string>>(url, body, options);
   }
-  addMembers(email: string): Observable<BaseResponseModel<string>> {
-    const url = 'https://graph.microsoft.com/v1.0/groups/7058daa5-75dc-48fe-9acf-6e5f25effb20/members/$ref';
+  addMembers(email: string,groupid:string): Observable<BaseResponseModel<string>> {
+    const url = `https://graph.microsoft.com/v1.0/groups/${groupid}/members/$ref`;
     const options = this.createHttpOptionsBearer();
 
     // Construct the body with the correct @odata.id format

@@ -56,8 +56,12 @@ private getGroupList() {
     this.errorMessage = error?.error?.error?.message;
   });   
 }
-open() {
+open(user:GroupModel) {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
+  initialState: {
+    user: user // Pass the user data to the modal
+  }
+
 }
 group() {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
