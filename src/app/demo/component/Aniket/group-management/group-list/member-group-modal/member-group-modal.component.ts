@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../../Ishare-point.service';
 import { ProviderList } from 'src/app/app-provider.registrar';
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GroupModel } from '../../../model/group-model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-member-group-modal',
@@ -15,18 +16,21 @@ import { GroupModel } from '../../../model/group-model';
   templateUrl: './member-group-modal.component.html',
   styleUrl: './member-group-modal.component.scss'
 })
-export class MemberGroupModalComponent {
+export class MemberGroupModalComponent implements OnInit {
   email: string = '';
   selectedOption: string = '';
   user: GroupModel;
-constructor(@Inject('initialState') public initialState: any,public activeModal:NgbActiveModal,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService){
-  this.user = initialState.user;
+  groupId: any;
+constructor(public route:ActivatedRoute,public activeModal:NgbActiveModal,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService){}
+ngOnInit(): void {
+  this.route.queryParams.subscribe(params => {
+    this.groupId = params['id'];
+  })
 }
-
 addMember(email:string)
 {
   debugger
-this.sharePointService.addMembers(email,this.user.id)
+this.sharePointService.addMembers(email,this.groupId)
     .subscribe((response:any) => {
       if (response) {
       } else {
@@ -36,7 +40,7 @@ this.sharePointService.addMembers(email,this.user.id)
 addOwner(email:string)
 {
   debugger
-this.sharePointService.addOwners(email,this.user.id)
+this.sharePointService.addOwners(email,this.groupId)
     .subscribe((response:any) => {
       if (response) {
       } else {
@@ -57,4 +61,5 @@ this.addMember(this.email);
     this.activeModal.close('Form submitted');
   }
 }
+
 }

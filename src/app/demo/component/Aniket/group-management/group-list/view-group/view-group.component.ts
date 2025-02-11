@@ -7,6 +7,8 @@ import { ISharePointService, SHARE_POINTS_SERVICE } from '../../../Ishare-point.
 import { GroupModel } from '../../../model/group-model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MemberModel, OwnerModel } from '../../../model/owner-model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MemberGroupModalComponent } from '../member-group-modal/member-group-modal.component';
 
 @Component({
   selector: 'app-view-group',
@@ -22,7 +24,7 @@ export class ViewGroupComponent implements OnInit {
   isOwner: string;
   showOwner:boolean;
 
-constructor(private router:Router,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private route:ActivatedRoute){}
+constructor(private router:Router,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private route:ActivatedRoute, private modelService:NgbModal){}
 ngOnInit(): void {
   this.showOwner=false;
   this.groupModelData=new Array<OwnerModel>();
@@ -95,5 +97,28 @@ deleteMember(memberid:string)
     console.log(response);
     this.getGroupMembers(this.groupId);
       });
+}
+open() {
+  const modalRef = this.modelService.open(MemberGroupModalComponent);
+  modalRef.result.then((result)=>{
+    if(this.isOwner.trim() == 'owner'){
+      this.showOwner = true;
+this.getGroupOwners(this.groupId);
+    }
+    else{
+      this.showOwner = false;
+      this.getGroupMembers(this.groupId);
+    }
+  },(reason)=>{
+    if(this.isOwner.trim() == 'owner'){
+      this.showOwner = true;
+this.getGroupOwners(this.groupId);
+    }
+    else{
+      this.showOwner = false;
+      this.getGroupMembers(this.groupId);
+    }
+  });
+
 }
 }

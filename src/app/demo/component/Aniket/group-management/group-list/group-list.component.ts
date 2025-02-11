@@ -58,10 +58,7 @@ private getGroupList() {
 }
 open(user:GroupModel) {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
-  initialState: {
-    user: user // Pass the user data to the modal
-  }
-
+ 
 }
 group() {
   const modalRef = this.modelService.open(MemberGroupModalComponent);
@@ -82,7 +79,6 @@ logOut()
   localStorage.removeItem('accesstoken');
   localStorage.removeItem('name');
   this._router.navigate(['/Test/Callback']);
-  
 }
 }
 
