@@ -105,6 +105,7 @@ open() {
   {
     const modalRef = this.modelService.open(OwnerAddGroupModalComponent);
     modalRef.result.then((result)=>{
+      debugger
       if(this.isOwner.trim() == 'owner'){
         this.showOwner = true;
   this.getGroupOwners(this.groupId);
@@ -114,6 +115,7 @@ open() {
         this.getGroupMembers(this.groupId);
       }
     },(reason)=>{
+      debugger
       if(this.isOwner.trim() == 'owner'){
         this.showOwner = true;
   this.getGroupOwners(this.groupId);
@@ -132,6 +134,7 @@ open() {
   this.getGroupOwners(this.groupId);
       }
       else{
+        debugger
         this.showOwner = false;
         this.getGroupMembers(this.groupId);
       }
