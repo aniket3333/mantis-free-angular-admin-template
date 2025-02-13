@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-all-sites-list',
@@ -33,6 +34,7 @@ export class AllSitesListComponent implements OnInit {
   };
   constructor(
     @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private router :Router,
+    private _loaderService: LoaderService,
   ) {
 
   }
@@ -51,6 +53,8 @@ navigate(siteId:string){
     this.getAllSites();
   }
   getAllSites() {
+    debugger
+     this._loaderService.isLoading.next(true),
     this.sharePointService.getAllSites().subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
         this.sitesModel = res.Data.value;
