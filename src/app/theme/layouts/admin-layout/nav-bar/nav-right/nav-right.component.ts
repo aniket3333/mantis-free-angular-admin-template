@@ -1,5 +1,5 @@
 // angular import
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, OnInit, output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 // project import
@@ -39,11 +39,12 @@ export class NavRightComponent {
 
   styleSelectorToggle = input<boolean>();
   Customize = output();
+  user:string='';
   windowWidth: number;
   screenFull: boolean = true;
 
   constructor(private router:Router) {
-    
+   this.user =  localStorage.getItem('email');
     this.windowWidth = window.innerWidth;
     this.iconService.addIcon(
       ...[

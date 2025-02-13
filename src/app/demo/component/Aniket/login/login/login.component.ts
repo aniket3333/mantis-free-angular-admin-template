@@ -70,7 +70,8 @@ localStorage.removeItem('name');
     this.sharePointService.getAccessToken(this.code).subscribe((res) => {
 console.log(res.Data.AccessToken,'jkjkjkjkjkjk');
 localStorage.setItem('accesstoken',res.Data.AccessToken);
-localStorage.setItem('name',res.Data.Name);
+localStorage.setItem('name',res?.Data?.Name);
+localStorage.setItem('email',res?.Data?.EmailAddress);
 
 this._router.navigate(['/pages/all-sites']);
     
