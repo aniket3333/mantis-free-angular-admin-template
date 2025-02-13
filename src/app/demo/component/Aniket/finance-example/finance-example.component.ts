@@ -26,7 +26,7 @@ import '@ag-grid-community/styles/ag-grid.css';
 import '@ag-grid-community/styles/ag-theme-quartz.css';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../Ishare-point.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgxUiLoaderConfig, NgxUiLoaderModule, NgxUiLoaderService, PB_DIRECTION, POSITION, SPINNER } from "ngx-ui-loader";
+import { NgxUiLoaderConfig, NgxUiLoaderModule, PB_DIRECTION, POSITION, SPINNER } from "ngx-ui-loader";
 import { ProviderList } from 'src/app/app-provider.registrar';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
 import { AgGridAngular } from '@ag-grid-community/angular';
@@ -100,7 +100,7 @@ export class FinanceExample {
     119.92, 113.78, 114.8, 126.08,
   ]
   constructor(
-    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private ngxService: NgxUiLoaderService,
+    @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,
     private router: Router,
     private activateRoute: ActivatedRoute
   ) {
@@ -121,7 +121,6 @@ export class FinanceExample {
   };
 
   ngOnInit(): void {
-    this.ngxService.start();
     this.getAllSites();
   }
 
@@ -131,7 +130,6 @@ export class FinanceExample {
     this.sharePointService.viewDrivesfile(this.fileUrl).subscribe((res) => {
         // this.sitesData = res.Data.Value;
         this.prepareGridData(res);
-        this.ngxService.stop();
     });
   }
   // Prepare columnDefs and rowData for AG Grid
