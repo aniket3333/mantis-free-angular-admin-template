@@ -13,7 +13,7 @@ import { LoaderComponent } from 'src/app/demo/component/Aniket/loader/loader.com
 
 @Component({
   selector: 'app-admin',
-  imports: [CommonModule, BreadcrumbComponent, NavigationComponent, NavBarComponent, RouterModule, ConfigurationComponent],
+  imports: [CommonModule, BreadcrumbComponent,LoaderComponent, NavigationComponent, NavBarComponent, RouterModule, ConfigurationComponent],
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss']
 })
