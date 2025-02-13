@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
 import { HttpStatus } from '../../common/http-status';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { ToastrAlertService } from '../../toaster-alert.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ProviderList } from 'src/app/app-provider.registrar';
     standalone: true,
     imports: [HttpClientModule,CommonModule,ReactiveFormsModule],
     encapsulation: ViewEncapsulation.None,
-    providers: [ProviderList]
+    providers: [ProviderList,ToastrAlertService]
 })
 export class AddUserComponent implements OnInit{
   addUserForm:FormGroup;
@@ -27,7 +28,7 @@ export class AddUserComponent implements OnInit{
  return this.addUserForm.controls;
  }
 constructor(private fb:FormBuilder,private http: HttpClient,private _formBuilder: UntypedFormBuilder,
-    private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
+     private _toastrService: ToastrAlertService,private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
 ) { }
 ngOnInit(): void {
   this.addUserForm = this.fb.group({
@@ -72,14 +73,18 @@ onSubmit() {
     .subscribe((response) => {
       if(response.Status == HttpStatus.Failed){
         this.showError = response.Message.trim();
+        this._toastrService.error('User',response.Message);
       }
       if (response.Status == HttpStatus.Success) {
         this.showSuccess = response.Message.trim();
+        this._toastrService.success('User',response.Message);
         setTimeout(()=>{
           this.cancelAddUpdateModel();
         },2000)
       } else {
         this.showError =response.Message.trim();
+        this._toastrService.error('User',response.Message);
+
         // this.cancelAddUpdateModel();
       }
    

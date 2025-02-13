@@ -7,7 +7,7 @@ import { LoaderComponent } from './demo/component/Aniket/loader/loader.component
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterOutlet,LoaderComponent]
+  imports: [RouterOutlet]
 })
 export class AppComponent {
   // public props

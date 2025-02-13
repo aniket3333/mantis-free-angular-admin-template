@@ -2,19 +2,20 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NgxUiLoaderModule.forRoot({
-      bgsColor: 'red',
-      bgsPosition: 'bottomCenter',
-      bgsSize: 40,
-      bgsType: 'rectangleBounce', // background spinner type
-      fgsType: 'chasingDots', // foreground spinner type
-      pbDirection: 'leftToRight', // progress bar direction
-      pbThickness: 5, // progress bar thickness
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ // Use forRoot() to configure globally
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut: 3000,
+      closeButton: true,
+      progressBar: true,
     }),
   ],
   providers: [],
