@@ -147,7 +147,7 @@ export class SharePointService  implements ISharePointService{
   }
 
   addOwners(email: string,groupid:string): Observable<BaseResponseModel<string>> {
-    const url = `https://graph.microsoft.com/v1.0/${groupid}/owners/$ref`;
+    const url = `https://graph.microsoft.com/v1.0/groups/${groupid}/owners/$ref`;
     const options = this.createHttpOptionsBearer();
   
     // Construct the body with the correct @odata.id format
