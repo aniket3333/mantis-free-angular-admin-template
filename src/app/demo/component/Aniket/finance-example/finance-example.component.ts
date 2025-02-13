@@ -128,9 +128,7 @@ export class FinanceExample {
   // Fetch data from API
   getAllSites() {
     
-    debugger
     this.sharePointService.viewDrivesfile(this.fileUrl).subscribe((res) => {
-        debugger
         // this.sitesData = res.Data.Value;
         this.prepareGridData(res);
         this.ngxService.stop();
@@ -138,7 +136,6 @@ export class FinanceExample {
   }
   // Prepare columnDefs and rowData for AG Grid
   prepareGridData(data: any) {
-    debugger;
     // Check if the data is valid and has the required fields
     if (data && Object.keys(data).length > 0) {
       // Get all keys of the data object (e.g., Id, name)

@@ -30,7 +30,6 @@ constructor(private router:Router,@Inject(SHARE_POINTS_SERVICE) private sharePoi
 ngOnInit(): void {
   this.showOwner=false;
   this.groupModelData=new Array<OwnerModel>();
-  debugger
   this.route.queryParams.subscribe(params => {
     this.groupId = params['id'];
     this.isOwner = params['isOwner'];
@@ -46,11 +45,9 @@ this.getGroupOwners(this.groupId);
 }
 getGroupOwners(id:string)
 {
-  debugger
 this.sharePointService.getGroupOwners(id)
     .subscribe((response:any) => {
       if (response) {
-        debugger
         this.groupModelData = null;
         this.groupModelData = response.value;
       } else {
@@ -75,7 +72,6 @@ this.router.navigate(['/pages/groups']);
 }
 delete(data:OwnerModel)
 {
-  debugger
   console.log(data);
 if(this.showOwner){
 this.deleteOwner(data.id);
@@ -105,7 +101,6 @@ open() {
   {
     const modalRef = this.modelService.open(OwnerAddGroupModalComponent);
     modalRef.result.then((result)=>{
-      debugger
       if(this.isOwner.trim() == 'owner'){
         this.showOwner = true;
   this.getGroupOwners(this.groupId);
@@ -115,7 +110,6 @@ open() {
         this.getGroupMembers(this.groupId);
       }
     },(reason)=>{
-      debugger
       if(this.isOwner.trim() == 'owner'){
         this.showOwner = true;
   this.getGroupOwners(this.groupId);
@@ -134,7 +128,6 @@ open() {
   this.getGroupOwners(this.groupId);
       }
       else{
-        debugger
         this.showOwner = false;
         this.getGroupMembers(this.groupId);
       }

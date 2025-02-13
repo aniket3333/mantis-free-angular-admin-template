@@ -29,7 +29,6 @@ ngOnInit(): void {
 }
 addMember(email:string)
 {
-  debugger
 this.sharePointService.addMembers(email,this.groupId)
     .subscribe((response:any) => {
       if (response) {
@@ -39,7 +38,6 @@ this.sharePointService.addMembers(email,this.groupId)
 }
 addOwner(email:string)
 {
-  debugger
 this.sharePointService.addOwners(email,this.groupId)
     .subscribe((response:any) => {
       if (response) {

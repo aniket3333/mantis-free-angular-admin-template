@@ -39,11 +39,9 @@ this.getGroupList();
 
 
 private getGroupList() {
-  debugger
   this.sharePointService.getAllGroups()
     .subscribe((response:any) => {
       if (response) {
-        debugger
         this.errorMessage ='';
         this.groupModel= response?.value;
       } else {

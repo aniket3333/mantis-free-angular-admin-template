@@ -33,9 +33,7 @@ export class DriveItemListComponent {
   }
 
 navigate(site:any){
-  debugger
  let fileUrl= this.getDownloadUrl(site);
- debugger
   this.router.navigate(['/pages/drive-view-file',fileUrl])
 }
   ngOnInit(): void {
@@ -46,14 +44,12 @@ navigate(site:any){
   getAllSites() {
     this.sharePointService.getDrivesItemByDriveId(this.DriveId).subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
-        debugger
         this.sitesModel = res.Data.Value;
         this.sitesData= res.Data.Value;
       }
     });
   }
   getDownloadUrl(site: any): string {
-    debugger
     return site['@microsoft.graph.downloadUrl'];
   }
   uploadFile()
@@ -79,7 +75,6 @@ navigate(site:any){
       console.log(formData);
       this.sharePointService.uploadFile(formData).subscribe((res) => {
         if (res.Status == HttpStatus.Success) {
-          debugger
           this.uploafFileFlag = false;
           this.successMessage = 'File uploaded successfully';
           console.log(res);

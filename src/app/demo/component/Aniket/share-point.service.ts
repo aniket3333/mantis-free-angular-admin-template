@@ -19,7 +19,6 @@ export class SharePointService  implements ISharePointService{
     return localStorage.getItem('accesstoken');  // Get the token from localStorage (or sessionStorage)
   }
   private createHttpOptions(): { headers: HttpHeaders } {
-    debugger
     const token = this.getAuthToken();  // Retrieve the token dynamically
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -28,7 +27,6 @@ export class SharePointService  implements ISharePointService{
     return { headers };
   }
   private createHttpOptionsBearer(): { headers: HttpHeaders } {
-    debugger
     const token = this.getAuthToken();  // Retrieve the token dynamically
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

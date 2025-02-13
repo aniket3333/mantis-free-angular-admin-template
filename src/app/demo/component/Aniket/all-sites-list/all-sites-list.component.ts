@@ -40,7 +40,6 @@ export class AllSitesListComponent implements OnInit {
   }
 
 navigate(siteId:string){
-  debugger
   if(siteId=='111')
   {
     this.router.navigate(["/pages/user-management/user-list"])
@@ -57,7 +56,6 @@ navigate(siteId:string){
     this._uiLoader.start();
     this.sharePointService.getAllSites().subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
-        debugger
         this.sitesModel = res.Data.value;
         this.sitesData= res.Data.value;
         // this.sitesData.push({

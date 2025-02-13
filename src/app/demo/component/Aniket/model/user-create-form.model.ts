@@ -16,7 +16,6 @@ export class UserCreateForm extends FormGroup {
   }
 
   getFormData(): FormData {
-    debugger
     let formData = new FormData();
 
     // Add form controls to FormData

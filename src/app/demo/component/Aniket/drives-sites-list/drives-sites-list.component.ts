@@ -28,7 +28,6 @@ export class DrivesSitesListComponent {
   }
 
 navigate(id:string){
-  debugger
   this.router.navigate(["/pages/drive-item",id])
 }
   ngOnInit(): void {
@@ -37,7 +36,6 @@ navigate(id:string){
   getAllSites() {
     this.sharePointService.getDrivesBySiteId(this.siteId).subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
-        debugger
         this.sitesModel = res.Data.Value;
         this.sitesData= res.Data.Value;
       }

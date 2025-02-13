@@ -67,10 +67,7 @@ cancelAddUpdateModel()
 }
 
 onSubmit() {
-  debugger
   const formData = this.createFormData(this.addUserForm.value);
-  console.log(formData);
-  debugger
   this.sharePointService.addUser(formData)
     .subscribe((response) => {
       if(response.Status == HttpStatus.Failed){

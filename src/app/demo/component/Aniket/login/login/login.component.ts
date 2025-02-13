@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
   //#region Methods
 
   ngOnInit() {
-    debugger
     localStorage.removeItem('accesstoken');
 localStorage.removeItem('name');
     this.route.queryParams.subscribe((params) => {
@@ -68,12 +67,9 @@ localStorage.removeItem('name');
   }
 
   getAccessToken() {
-    debugger
     this.sharePointService.getAccessToken(this.code).subscribe((res) => {
-        debugger
 console.log(res.Data.AccessToken,'jkjkjkjkjkjk');
 localStorage.setItem('accesstoken',res.Data.AccessToken);
-debugger
 localStorage.setItem('name',res.Data.Name);
 
 this._router.navigate(['/pages/all-sites']);
@@ -87,7 +83,6 @@ this._router.navigate(['/pages/all-sites']);
       .get('https://rnapi.sdaemon.com/Api/api/v1/Microsoft365User/GetLoginUrl')
       .subscribe(
         (response: any) => {
-          debugger
           console.log(response);
           // Assuming the response contains the URL you want to navigate to
           const loginUrl = response.Data; // Adjust this if the response structure is different

@@ -127,7 +127,6 @@ export class SharepointDataTableComponent {
   }
 
 navigate(id:string){
-  debugger
   this.router.navigate(["/drive-item",id])
 }
   ngOnInit(): void {
@@ -136,7 +135,6 @@ navigate(id:string){
   getAllSites() {
     this.sharePointService.viewDrivesfile(this.fileUrl).subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
-        debugger
         this.sitesModel = res.Data.Value;
         this.sitesData= res.Data.Value;
       }
