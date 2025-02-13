@@ -6,8 +6,8 @@
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 card-title flex-grow-1">
                     {{showOwner ? 'Group owners ' : 'Group members' }} </h5>
-                    <button type="button" class="btn btn-sm btn-primary me-1" (click)="open()">
-                        {{showOwner ? 'Add owner ' : 'Add member' }} </button>
+                    <!-- <button type="button" class="btn btn-sm btn-primary me-1" (click)="open()">
+                        {{showOwner ? 'Add owner ' : 'Add member' }} </button> -->
                     <button (click)="onLinkClick()" class="btn-left-aligned text-danger">
                         <i class="fa fa-arrow-left"></i>
                       </button>                      
@@ -37,7 +37,7 @@
                               </button></td>
                             <td> {{ item.displayName }}</td>
                             <td>{{ item.surname }}</td>
-                            <td>{{ item.mail }}</td>
+                            <td>{{ item.userPrincipalName }}</td>
                             <td>{{ item.mobilePhone }}</td>
                             <td>{{ item.officeLocation }}</td>
 
