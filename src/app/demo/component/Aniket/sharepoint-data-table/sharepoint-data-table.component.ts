@@ -3,7 +3,6 @@ import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpStatus } from '../common/http-status';
 import { SitesModal } from '../common/siteModal';
 import { SHARE_POINTS_SERVICE, ISharePointService } from '../Ishare-point.service';
-import { ProviderList } from '../app-provider-registrar';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FinanceExample } from '../finance-example/finance-example.component';
@@ -25,6 +24,7 @@ import { SetFilterModule } from '@ag-grid-enterprise/set-filter';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { ProviderList } from 'src/app/app-provider.registrar';
 
 ModuleRegistry.registerModules([
   ClientSideRowModelModule,
