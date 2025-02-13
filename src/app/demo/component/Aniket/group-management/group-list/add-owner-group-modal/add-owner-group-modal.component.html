@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add Owner</h4>
+    
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form #emailForm="ngForm">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" #emailInput="ngModel" required />
+                <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                    Email is required and must be valid.
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-primary" [disabled]="emailForm.invalid" (click)="submitForm()">Submit</button>
+</div>

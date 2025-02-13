@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MemberModel, OwnerModel } from '../../../model/owner-model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MemberGroupModalComponent } from '../member-group-modal/member-group-modal.component';
+import { OwnerAddGroupModalComponent } from '../add-owner-group-modal/add-owner-group-modal.component';
+import { MemberAddGroupModalComponent } from '../add-member-group-modal/add-member-group-modal.component';
 
 @Component({
   selector: 'app-view-group',
@@ -99,26 +101,53 @@ deleteMember(memberid:string)
       });
 }
 open() {
-  const modalRef = this.modelService.open(MemberGroupModalComponent);
-  modalRef.result.then((result)=>{
-    if(this.isOwner.trim() == 'owner'){
-      this.showOwner = true;
-this.getGroupOwners(this.groupId);
-    }
-    else{
-      this.showOwner = false;
-      this.getGroupMembers(this.groupId);
-    }
-  },(reason)=>{
-    if(this.isOwner.trim() == 'owner'){
-      this.showOwner = true;
-this.getGroupOwners(this.groupId);
-    }
-    else{
-      this.showOwner = false;
-      this.getGroupMembers(this.groupId);
-    }
-  });
+  if(this.isOwner.trim() == 'owner')
+  {
+    const modalRef = this.modelService.open(OwnerAddGroupModalComponent);
+    modalRef.result.then((result)=>{
+      if(this.isOwner.trim() == 'owner'){
+        this.showOwner = true;
+  this.getGroupOwners(this.groupId);
+      }
+      else{
+        this.showOwner = false;
+        this.getGroupMembers(this.groupId);
+      }
+    },(reason)=>{
+      if(this.isOwner.trim() == 'owner'){
+        this.showOwner = true;
+  this.getGroupOwners(this.groupId);
+      }
+      else{
+        this.showOwner = false;
+        this.getGroupMembers(this.groupId);
+      }
+    });
+  }
+  else{
+    const modalRef = this.modelService.open(MemberAddGroupModalComponent);
+    modalRef.result.then((result)=>{
+      if(this.isOwner.trim() == 'owner'){
+        this.showOwner = true;
+  this.getGroupOwners(this.groupId);
+      }
+      else{
+        this.showOwner = false;
+        this.getGroupMembers(this.groupId);
+      }
+    },(reason)=>{
+      if(this.isOwner.trim() == 'owner'){
+        this.showOwner = true;
+  this.getGroupOwners(this.groupId);
+      }
+      else{
+        this.showOwner = false;
+        this.getGroupMembers(this.groupId);
+      }
+    });
+  }
+  
+  
 
 }
 }
