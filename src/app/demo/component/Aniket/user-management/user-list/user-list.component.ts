@@ -21,6 +21,7 @@ import { ProviderList } from 'src/app/app-provider.registrar';
 })
 export class UserListComponent implements OnInit {
   model:UserSearch;
+  password: string = "P@ssword123";
   leadTableDataList: DataTableModel<UserModel>;
     users = [
     { name: 'Alice Johnson', email: 'alice@example.com', status: 'Active', statusClass: 'bg-success' },
