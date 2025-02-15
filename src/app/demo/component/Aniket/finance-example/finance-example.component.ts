@@ -131,16 +131,10 @@ export class FinanceExample {
   getAllSites() {
     this._loaderservice.isLoading.next(true);
     this.sharePointService.viewDrivesfile(this.fileUrl).subscribe((res) => {
-      if(res.Status == HttpStatus.Success)
-      {
         this._loaderservice.isLoading.next(false);
 
         // this.sitesData = res.Data.Value;
         this.prepareGridData(res);
-      }else{
-        this._loaderservice.isLoading.next(false);
-
-      }
       
     },
   (error)=>{
