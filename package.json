@@ -43,6 +43,8 @@
     "@angular/router": "19.0.5",
     "@ant-design/icons-angular": "19.0.0",
     "@ng-bootstrap/ng-bootstrap": "18.0.0",
+    "@ngneat/overview": "^6.1.1",
+    "@ngxpert/hot-toast": "^4.1.1",
     "@popperjs/core": "2.11.8",
     "ag-charts-angular": "^11.0.4",
     "ag-charts-enterprise": "^11.0.4",

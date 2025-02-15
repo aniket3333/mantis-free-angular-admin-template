@@ -14,14 +14,7 @@ export class ToastrAlertService {
 
   //#region Properties
 
-  get config(): any {
-    let options =
-    {
-      positionClass: 'toast-bottom-right'
-    };
-
-    return options;
-  }
+  
 
   //#endregion
 
@@ -33,7 +26,7 @@ export class ToastrAlertService {
     }
     title = title;
     message = message;
-    this._toastrService.success(message, title, this.config);
+    this._toastrService.success(message, title);
   }
 
   error(title: string, message: string) {
@@ -42,7 +35,7 @@ export class ToastrAlertService {
     }
     title = title;
     message = message;
-    this._toastrService.error(message, title, this.config);
+    this._toastrService.error(message, title);
   }
 
   info(title: string, message: string) {
@@ -50,7 +43,7 @@ export class ToastrAlertService {
       return;
     }
 
-    this._toastrService.info(message, title, this.config);
+    this._toastrService.info(message, title);
   }
 
   

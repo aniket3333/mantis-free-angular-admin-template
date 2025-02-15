@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
 import { HttpStatus } from '../../common/http-status';
 import { ProviderList } from 'src/app/app-provider.registrar';
-import { ToastrAlertService } from '../../toaster-alert.service';
+import { HotToastService } from '@ngxpert/hot-toast';
 
 
 @Component({
@@ -16,9 +16,10 @@ import { ToastrAlertService } from '../../toaster-alert.service';
     standalone: true,
     imports: [HttpClientModule,CommonModule,ReactiveFormsModule],
     encapsulation: ViewEncapsulation.None,
-    providers: [ProviderList,ToastrAlertService]
+    providers: [ProviderList]
 })
 export class AddUserComponent implements OnInit{
+
   addUserForm:FormGroup;
   selectedFile: File | null = null; // Stores the selected file
   showError: string;
@@ -27,8 +28,7 @@ export class AddUserComponent implements OnInit{
  get f(){
  return this.addUserForm.controls;
  }
-constructor(private fb:FormBuilder,private http: HttpClient,private _formBuilder: UntypedFormBuilder,
-     private _toastrService: ToastrAlertService,private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
+constructor(private toasterService:HotToastService,private fb:FormBuilder,private http: HttpClient,private _formBuilder: UntypedFormBuilder,private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
 ) { }
 ngOnInit(): void {
   this.addUserForm = this.fb.group({
@@ -73,17 +73,17 @@ onSubmit() {
     .subscribe((response) => {
       if(response.Status == HttpStatus.Failed){
         this.showError = response.Message.trim();
-        this._toastrService.error('User',response.Message);
+        this.toasterService.error(response.Message);
       }
       if (response.Status == HttpStatus.Success) {
         this.showSuccess = response.Message.trim();
-        this._toastrService.success('User',response.Message);
+        this.toasterService.success(response.Message);
         setTimeout(()=>{
           this.cancelAddUpdateModel();
         },2000)
       } else {
         this.showError =response.Message.trim();
-        this._toastrService.error('User',response.Message);
+        this.toasterService.error(response.Message);
 
         // this.cancelAddUpdateModel();
       }
@@ -106,5 +106,4 @@ onFileSelected(event: Event): void {
     this.addUserForm.get('ImageFile')?.updateValueAndValidity();
   }
 }
-
 }

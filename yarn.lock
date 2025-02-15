@@ -410,7 +410,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^17.0.0", "@angular/common@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>= 16.0.0", "@angular/common@>= 17.0.0", "@angular/common@>=13.0.0", "@angular/common@>=16.0.0-0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
+"@angular/common@^17.0.0", "@angular/common@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/common@^18.0.1", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>= 16.0.0", "@angular/common@>= 17.0.0", "@angular/common@>= 19.0.0", "@angular/common@>=13.0.0", "@angular/common@>=16.0.0-0", "@angular/common@>=17.3.0", "@angular/common@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/common/-/common-19.0.5.tgz"
   integrity sha512-fFK+euCj1AjBHBCpj9VnduMSeqoMRhZZHbhPYiND7tucRRJ8vwGU0sYK2KI/Ko+fsrNIXL/0O4F36jVPl09Smg==
@@ -438,7 +438,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^17.0.0", "@angular/core@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>= 16.0.0", "@angular/core@>= 17.0.0", "@angular/core@>=13.0.0", "@angular/core@>=16.0.0-0", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
+"@angular/core@^17.0.0", "@angular/core@^17.0.0 || ^18.0.0 || ^19.0.0", "@angular/core@^18.0.1", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@>= 16.0.0", "@angular/core@>= 17.0.0", "@angular/core@>= 19.0.0", "@angular/core@>=13.0.0", "@angular/core@>=16.0.0-0", "@angular/core@>=17", "@angular/core@>=17.3.0", "@angular/core@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/core/-/core-19.0.5.tgz"
   integrity sha512-Ywc6sPO6G/Y1stfk3y/MallV/h0yzQ0vdOHRWueLrk5kD1DTdbolV4X03Cs3PuVvravgcSVE3nnuuHFuH32emQ==
@@ -1702,10 +1702,24 @@
   dependencies:
     tslib "^2.3.0"
 
+"@ngneat/overview@^6.1.1", "@ngneat/overview@6.1.1":
+  version "6.1.1"
+  resolved "https://registry.npmjs.org/@ngneat/overview/-/overview-6.1.1.tgz"
+  integrity sha512-31gsEbSbLWTD/LD8KtUS2Qv+GVQS2pK00S9ZBP+pv2ZF1NIfwHjXs8fey8TQN1QuKPLa510YYN3rEwyP57UCfw==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@19.0.6":
   version "19.0.6"
   resolved "https://registry.npmjs.org/@ngtools/webpack/-/webpack-19.0.6.tgz"
   integrity sha512-eWrIb0tS1CK6+JvFS4GgTD4fN9TtmApKrlaj3pPQXKXKKd42361ec85fuQQXdb4G8eEEq0vyd/bn4NJllh/3vw==
+
+"@ngxpert/hot-toast@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/@ngxpert/hot-toast/-/hot-toast-4.1.1.tgz"
+  integrity sha512-GHNqzw9O9VgNv8ClrxDP+HKGKe5uWxoiX43byU8BAFMMUZSR9sPFi4Q/Rz0VxdCVcWKAOUh/6IUnOM8WzYVjWQ==
+  dependencies:
+    tslib "^2.3.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
