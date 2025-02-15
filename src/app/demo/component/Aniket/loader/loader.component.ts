@@ -14,7 +14,6 @@ export class LoaderComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private loaderService: LoaderService) {
-debugger
     this.loaderService.isLoading.subscribe((v) => {
       this.loading = v;
     });

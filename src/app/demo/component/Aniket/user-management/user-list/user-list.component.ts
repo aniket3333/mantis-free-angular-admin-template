@@ -35,7 +35,6 @@ constructor(private _loaderservice:LoaderService,private _toasterservice:HotToas
 ) { }
 
 ngOnInit(){
-  alert('correct');
   this.model=new UserSearch();
   this.leadTableDataList = new DataTableModel<UserModel>();
 
