@@ -31,6 +31,9 @@ import { ProviderList } from 'src/app/app-provider.registrar';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
 import { AgGridAngular } from '@ag-grid-community/angular';
 import { iconSetMaterial, themeBalham, themeQuartz } from 'ag-grid-community';
+import { LoaderService } from '../loader.service';
+import { HotToastService } from '@ngxpert/hot-toast';
+import { HttpStatus } from '../common/http-status';
 
 // import { AgChartsEnterpriseModule } from 'ag-charts-enterprise';
 ModuleRegistry.registerModules([
@@ -102,7 +105,7 @@ export class FinanceExample {
   constructor(
     @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,
     private router: Router,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,private _loaderservice:LoaderService,private _toaster:HotToastService,
   ) {
 
     this.activateRoute.paramMap.subscribe(res => {
@@ -126,11 +129,24 @@ export class FinanceExample {
 
   // Fetch data from API
   getAllSites() {
-    
+    this._loaderservice.isLoading.next(true);
     this.sharePointService.viewDrivesfile(this.fileUrl).subscribe((res) => {
+      if(res.Status == HttpStatus.Success)
+      {
+        this._loaderservice.isLoading.next(false);
+
         // this.sitesData = res.Data.Value;
         this.prepareGridData(res);
-    });
+      }else{
+        this._loaderservice.isLoading.next(false);
+
+      }
+      
+    },
+  (error)=>{
+    this._loaderservice.isLoading.next(false);
+this._toaster.error(error.Message);
+  });
   }
   // Prepare columnDefs and rowData for AG Grid
   prepareGridData(data: any) {

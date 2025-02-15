@@ -8,6 +8,9 @@ import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.ser
 import { GroupModel } from '../../model/group-model';
 import { MemberGroupModalComponent } from './member-group-modal/member-group-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoaderService } from '../../loader.service';
+import { HotToastService } from '@ngxpert/hot-toast';
+import { HttpStatus } from '../../common/http-status';
 @Component({
   selector: 'app-group-list',
   templateUrl: './group-list.component.html',
@@ -23,7 +26,7 @@ export class GroupListComponent implements OnInit {
 
   groupModel:Array<GroupModel>;
   errorMessage: string|null = '';
-constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
+constructor(private _loaderservice:LoaderService,private _toasterservice:HotToastService,private http: HttpClient,private _formBuilder: UntypedFormBuilder,
    private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,
    private modelService:NgbModal
 ) { }
@@ -39,18 +42,26 @@ this.getGroupList();
 
 
 private getGroupList() {
+  this._loaderservice.isLoading.next(true);
   this.sharePointService.getAllGroups()
     .subscribe((response:any) => {
-      if (response) {
+      if (response.Status = HttpStatus.Success) {
+        this._loaderservice.isLoading.next(false);
+
         this.errorMessage ='';
         this.groupModel= response?.value;
       } else {
         this.errorMessage  = '';
+        this._loaderservice.isLoading.next(false);
+        this._toasterservice.error(response.message);
+
         this.groupModel = []; // Assign an empty array if DataList is null or undefined
       }
     },
   (error)=>{
     this.groupModel = [];
+    this._loaderservice.isLoading.next(false);
+this._toasterservice.error(error.message);
     this.errorMessage = error?.error?.error?.message;
   });   
 }

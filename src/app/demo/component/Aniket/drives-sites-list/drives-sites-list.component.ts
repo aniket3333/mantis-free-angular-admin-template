@@ -6,6 +6,8 @@ import { SHARE_POINTS_SERVICE, ISharePointService } from '../Ishare-point.servic
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { LoaderService } from '../loader.service';
+import { HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   selector: 'app-drives-sites-list',
@@ -19,7 +21,7 @@ export class DrivesSitesListComponent {
  sitesModel: SitesModal = new SitesModal();
   sitesData:any
   siteId: string='';
-  constructor(
+  constructor(private _loaderService: LoaderService,private _toaster:HotToastService,
     @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService, private router :Router,private activateRoute:ActivatedRoute
   ) {
     this.activateRoute.paramMap.subscribe(res=>{
@@ -34,11 +36,21 @@ navigate(id:string){
     this.getAllSites();
   }
   getAllSites() {
+    this._loaderService.isLoading.next(true);
     this.sharePointService.getDrivesBySiteId(this.siteId).subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
+        this._loaderService.isLoading.next(false);
         this.sitesModel = res.Data.Value;
         this.sitesData= res.Data.Value;
       }
-    });
+      else{
+        this._loaderService.isLoading.next(false);
+        this._toaster.error(res.Message);
+
+      }
+    },
+  (error)=>{
+this._toaster.error(error.Message);
+  });
   }
 }

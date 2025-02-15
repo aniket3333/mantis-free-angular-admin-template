@@ -10,6 +10,8 @@ import { UserModel } from '../../model/user.model';
 import { HttpStatus } from '../../common/http-status';
 import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.service';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { LoaderService } from '../../loader.service';
+import { HotToastService } from '@ngxpert/hot-toast';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -28,7 +30,7 @@ export class UserListComponent implements OnInit {
     { name: 'Bob Smith', email: 'bob@example.com', status: 'Inactive', statusClass: 'bg-danger' },
     { name: 'Charlie Brown', email: 'charlie@example.com', status: 'Pending', statusClass: 'bg-warning' }
   ];
-constructor(private http: HttpClient,private _formBuilder: UntypedFormBuilder,
+constructor(private _loaderservice:LoaderService,private _toasterservice:HotToastService,private http: HttpClient,private _formBuilder: UntypedFormBuilder,
    private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
 ) { }
 
@@ -48,15 +50,24 @@ this.getUserList();
 
 
 private getUserList() {
+  this._loaderservice.isLoading.next(true);
   this.sharePointService.getUserList(this.model)
     .subscribe((response) => {
       if (response.Status == HttpStatus.Success && response.Data.DataList) {
         this.leadTableDataList.DataList = response.Data.DataList
+        this._loaderservice.isLoading.next(false);
+
         
       } else {
+        this._loaderservice.isLoading.next(false);
+
         this.leadTableDataList.DataList = []; // Assign an empty array if DataList is null or undefined
       }
-    });
+    },
+  (error)=>{
+    this._loaderservice.isLoading.next(false);
+this._toasterservice.error(error.Message);
+  });
     
 }
 

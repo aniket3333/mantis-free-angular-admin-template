@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { UploadFile } from '../model/upload-file.model';
 import { ProviderList } from 'src/app/app-provider.registrar';
+import { HotToastService } from '@ngxpert/hot-toast';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-drive-item-list',
@@ -24,7 +26,7 @@ export class DriveItemListComponent {
   selectedFile: File;
   uploadFilei:UploadFile;
   successMessage: string;
-  constructor(
+  constructor(private _toaster:HotToastService,private _loaderservice:LoaderService,
     @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService, private router :Router,private activateRoute:ActivatedRoute
   ) {
     this.activateRoute.paramMap.subscribe(res=>{
@@ -42,12 +44,24 @@ navigate(site:any){
     this.getAllSites();
   }
   getAllSites() {
+    this._loaderservice.isLoading.next(true);
     this.sharePointService.getDrivesItemByDriveId(this.DriveId).subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
+        this._loaderservice.isLoading.next(false);
+
         this.sitesModel = res.Data.Value;
         this.sitesData= res.Data.Value;
       }
-    });
+      else{
+        this._loaderservice.isLoading.next(false);
+this._toaster.error(res.Message);
+      }
+    }
+  ,
+(error)=>{
+  this._toaster.error(error.Message);
+
+});
   }
   getDownloadUrl(site: any): string {
     return site['@microsoft.graph.downloadUrl'];

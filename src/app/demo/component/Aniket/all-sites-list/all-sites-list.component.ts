@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProviderList } from 'src/app/app-provider.registrar';
 import { LoaderService } from '../loader.service';
+import { ToastrService } from 'ngx-toastr';
+import { HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   selector: 'app-all-sites-list',
@@ -34,7 +36,7 @@ export class AllSitesListComponent implements OnInit {
   };
   constructor(
     @Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService,private router :Router,
-    private _loaderService: LoaderService,
+    private _loaderService: LoaderService,private _toaster:HotToastService
   ) {
 
   }
@@ -53,7 +55,6 @@ navigate(siteId:string){
     this.getAllSites();
   }
   getAllSites() {
-    debugger
      this._loaderService.isLoading.next(true),
     this.sharePointService.getAllSites().subscribe((res) => {
       if (res.Status == HttpStatus.Success) {
@@ -67,7 +68,14 @@ navigate(siteId:string){
         // });
         // console.log(this.sitesData);
       }
-    });
+      else{
+        this._loaderService.isLoading.next(false);
+
+      }
+    },
+  (error)=>{
+this._toaster.error(error.Message);
+  });
   }
 
   // You can add logic for assigning file types here if needed

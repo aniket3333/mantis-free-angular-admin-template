@@ -7,6 +7,7 @@ import { ISharePointService, SHARE_POINTS_SERVICE } from '../../Ishare-point.ser
 import { HttpStatus } from '../../common/http-status';
 import { ProviderList } from 'src/app/app-provider.registrar';
 import { HotToastService } from '@ngxpert/hot-toast';
+import { LoaderService } from '../../loader.service';
 
 
 @Component({
@@ -22,13 +23,13 @@ export class AddUserComponent implements OnInit{
 
   addUserForm:FormGroup;
   selectedFile: File | null = null; // Stores the selected file
-  showError: string;
+  // showError: string;
   showSuccess: string;
 
  get f(){
  return this.addUserForm.controls;
  }
-constructor(private toasterService:HotToastService,private fb:FormBuilder,private http: HttpClient,private _formBuilder: UntypedFormBuilder,private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
+constructor(private _loaderservice:LoaderService,private toasterService:HotToastService,private fb:FormBuilder,private http: HttpClient,private _formBuilder: UntypedFormBuilder,private _router: Router,private _route: ActivatedRoute,private route: ActivatedRoute,@Inject(SHARE_POINTS_SERVICE) private sharePointService: ISharePointService
 ) { }
 ngOnInit(): void {
   this.addUserForm = this.fb.group({
@@ -69,20 +70,27 @@ cancelAddUpdateModel()
 
 onSubmit() {
   const formData = this.createFormData(this.addUserForm.value);
+  this._loaderservice.isLoading.next(true);
   this.sharePointService.addUser(formData)
     .subscribe((response) => {
       if(response.Status == HttpStatus.Failed){
-        this.showError = response.Message.trim();
+        // this.showError = response.Message.trim();
+        this._loaderservice.isLoading.next(false);
+
         this.toasterService.error(response.Message);
       }
       if (response.Status == HttpStatus.Success) {
-        this.showSuccess = response.Message.trim();
+        // this.showSuccess = response.Message.trim();
+        this._loaderservice.isLoading.next(false);
+
         this.toasterService.success(response.Message);
         setTimeout(()=>{
           this.cancelAddUpdateModel();
         },2000)
       } else {
-        this.showError =response.Message.trim();
+        // this.showError =response.Message.trim();
+        this._loaderservice.isLoading.next(false);
+
         this.toasterService.error(response.Message);
 
         // this.cancelAddUpdateModel();
@@ -90,8 +98,12 @@ onSubmit() {
    
     },
   (error)=>{
-    this.showError ='';
+    // this.showError ='';
     // this.cancelAddUpdateModel();
+    this._loaderservice.isLoading.next(false);
+    this.toasterService.error(error.Message);
+
+
   });
 }
 onFileSelected(event: Event): void {
