@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('accesstoken');
 localStorage.removeItem('name');
     this.route.queryParams.subscribe((params) => {
+      debugger
       this.code = params['code'];
       console.log('Code parameter:', this.code);
       if(this.code )
