@@ -52,7 +52,7 @@ getGroupOwners(id:string)
 
 this.sharePointService.getGroupOwners(id)
     .subscribe((response:any) => {
-      if (response.Status=HttpStatus.Success) {
+      if (response) {
         this._loaderservice.isLoading.next(false);
 
         this.groupModelData = null;
@@ -69,10 +69,11 @@ this._toasetrserviceL.error(error.message);
 }
 getGroupMembers(id:string)
 {
+  debugger
   this._loaderservice.isLoading.next(true);
 this.sharePointService.getGroupMembers(id)
     .subscribe((response:any) => {
-      if (response.Status ==HttpStatus.Success) {
+      if (response) {
         this.groupModelData = null;
         this.groupModelData = response.value;
         this._loaderservice.isLoading.next(false);
