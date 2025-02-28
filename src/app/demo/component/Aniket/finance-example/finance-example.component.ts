@@ -109,7 +109,7 @@ export class FinanceExample {
   ) {
 
     this.activateRoute.paramMap.subscribe(res => {
-      this.fileUrl = res.get("fileUrl")?.toString() ?? '';
+      this.fileUrl = res.get("fileUrl") ?? '';
     });
   }
  
@@ -124,6 +124,7 @@ export class FinanceExample {
   };
 
   ngOnInit(): void {
+    debugger
     this.getAllSites();
   }
 
