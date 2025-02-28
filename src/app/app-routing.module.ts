@@ -34,7 +34,7 @@ const routes: Routes = [
         loadComponent: () => import('./demo/component/Aniket/drive-item-list/drive-item-list.component').then((c) => c.DriveItemListComponent)
       },
       {
-        path: 'drive-view-file/:fileUrl',
+        path: 'drive-view-file',
         loadComponent: () => import('./demo/component/Aniket/finance-example/finance-example.component').then((c) => c.FinanceExample)
       },
       {
