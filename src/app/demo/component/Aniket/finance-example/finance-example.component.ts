@@ -110,6 +110,7 @@ export class FinanceExample {
 
     this.activateRoute.paramMap.subscribe(res => {
       this.fileUrl = res.get("fileUrl") ?? '';
+      console.log(this.fileUrl,'l1');
     });
   }
  
