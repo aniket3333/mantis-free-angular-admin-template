@@ -108,10 +108,12 @@ export class FinanceExample {
     private activateRoute: ActivatedRoute,private _loaderservice:LoaderService,private _toaster:HotToastService,
   ) {
 
-    this.activateRoute.paramMap.subscribe(res => {
-      this.fileUrl = res.get("fileUrl") ?? '';
-      console.log(this.fileUrl,'l1');
-    });
+    // this.activateRoute.paramMap.subscribe(res => {
+    //   this.fileUrl = res.get("fileUrl") ?? '';
+    //   console.log(this.fileUrl,'l1');
+    // });
+    this.fileUrl = localStorage.getItem("fileUrl");
+    console.log(this.fileUrl,'lllllllllllllllllllllllllllllllllllllll1');
   }
  
   gridOptions: GridOptions = {

@@ -36,7 +36,8 @@ export class DriveItemListComponent {
 
 navigate(site:any){
  let fileUrl= this.getDownloadUrl(site);
-  this.router.navigate(['/pages/drive-view-file',fileUrl])
+ localStorage.setItem("fileUrl",fileUrl);
+  this.router.navigate(['/pages/drive-view-file'])
 }
   ngOnInit(): void {
     this.uploadFilei =new  UploadFile();
